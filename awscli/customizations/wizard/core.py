@@ -204,21 +204,33 @@ class TemplateStep(BaseStep):
         r'(?P<body>.+?)[ \t]*{%\s*endif\s*%}[$|\n]?',
         re.DOTALL | re.MULTILINE | re.IGNORECASE
     )
+    _SUPPORTED_CONDITION_OPERATORS = [
+        '==',
+        '!=',
+    ]
 
     def _check_condition(self, parameters, matchobj):
         group_dict = matchobj.groupdict()
         condition = group_dict['condition'].strip()
-        if '==' in condition:
-            right, left = condition.split('==', 1)
-            right = right.strip()
-            left = left.strip()
-            if parameters.get(right) == left or right == parameters.get(left) \
-                    or parameters.get(right, 1) == parameters.get(left, 2):
-                return group_dict['body']
-            return ''
-        elif parameters.get(condition, False) in ['False', 'no', False]:
-            return ''
+        for operator in self._SUPPORTED_CONDITION_OPERATORS:
+            if operator in condition:
+                condition = self._resolve_variables_in_condition(
+                    condition, parameters
+                )
+                right, left = condition.split(operator, 1)
+                right = right.strip()
+                left = left.strip()
+                if operator == '==':
+                    if left == right:
+                        return group_dict['body']
+                elif operator == '!=':
+                    if left != right:
+                        return group_dict['body']
+                return ''
         return group_dict['body']
+
+    def _resolve_variables_in_condition(self, condition, parameters):
+        return condition.format_map(parameters)
 
     def _evaluate_conditions(self, value, parameters):
         condition_checker = partial(self._check_condition, parameters)
@@ -245,6 +257,7 @@ class APICallStep(BaseStep):
             optional_api_params=step_definition.get('optional_params'),
             query=step_definition.get('query'),
             cache=step_definition.get('cache', False),
+            paginate=step_definition.get('paginate', False)
         )
 
 
@@ -329,7 +342,8 @@ class APIInvoker(object):
         self._response_cache = {}
 
     def invoke(self, service, operation, api_params, plan_variables,
-               optional_api_params=None, query=None, cache=False):
+               optional_api_params=None, query=None, cache=False,
+               paginate=False):
         # TODO: All of the params that come from prompting the user
         # are strings.  We need a way to convert values to their
         # appropriate types.  We can either add typing into the wizard
@@ -339,9 +353,10 @@ class APIInvoker(object):
             api_params, optional_api_params, plan_variables)
         if cache:
             response = self._get_cached_api_call(
-                service, operation, resolved_params)
+                service, operation, resolved_params, paginate)
         else:
-            response = self._make_api_call(service, operation, resolved_params)
+            response = self._make_api_call(
+                service, operation, resolved_params, paginate)
         if query is not None:
             response = jmespath.search(query, response)
         return response
@@ -358,18 +373,23 @@ class APIInvoker(object):
                     api_params_resolved[key] = value
         return api_params_resolved
 
-    def _make_api_call(self, service, operation, resolved_params):
+    def _make_api_call(self, service, operation, resolved_params, paginate):
         client = self._session.create_client(service)
-        response = getattr(client, xform_name(operation))(**resolved_params)
-        return response
+        client_method_name = xform_name(operation)
+        if paginate:
+            paginator = client.get_paginator(client_method_name)
+            return paginator.paginate(**resolved_params).build_full_result()
+        else:
+            return getattr(client, client_method_name)(**resolved_params)
 
-    def _get_cached_api_call(self, service, operation, resolved_params):
+    def _get_cached_api_call(self, service, operation, resolved_params,
+                             paginate):
         cache_key = self._get_cache_key(
             service, operation, resolved_params
         )
         if cache_key not in self._response_cache:
             response = self._make_api_call(
-                service, operation, resolved_params)
+                service, operation, resolved_params, paginate)
             self._response_cache[cache_key] = response
         return self._response_cache[cache_key]
 
@@ -548,3 +568,35 @@ class MergeDictStep(ExecutorStep):
             return result
         else:
             return newvalue
+
+
+class LoadDataStep(ExecutorStep):
+    NAME = 'load-data'
+
+    def run_step(self, step_definition, parameters):
+        var_resolver = VariableResolver()
+        value = var_resolver.resolve_variables(
+            parameters, step_definition['value'],
+        )
+        load_type = step_definition['load_type']
+        if load_type == 'json':
+            loaded_value = json.loads(value)
+            parameters[step_definition['output_var']] = loaded_value
+        else:
+            raise ValueError(f'Unsupported load_type: {load_type}')
+
+
+class DumpDataStep(ExecutorStep):
+    NAME = 'dump-data'
+
+    def run_step(self, step_definition, parameters):
+        var_resolver = VariableResolver()
+        value = var_resolver.resolve_variables(
+            parameters, step_definition['value'],
+        )
+        dump_type = step_definition['dump_type']
+        if dump_type == 'json':
+            dumped_value = json.dumps(value)
+            parameters[step_definition['output_var']] = dumped_value
+        else:
+            raise ValueError(f'Unsupported load_type: {dump_type}')
