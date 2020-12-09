@@ -510,7 +510,7 @@ Prints a JSON skeleton to standard output without sending an API request. If pro
     --targets Key=InstanceIds,Values=i-1234520122EXAMPLE \
     --task-arn AWS-RestartEC2Instance \
     --service-role-arn arn:aws:iam::111222333444:role/SSM --task-type AUTOMATION \
-    --task-invocation-parameters &quot;{\&quot;Automation\&quot;:{\&quot;DocumentVersion\&quot;:\&quot;\$LATEST\&quot;,\&quot;Parameters\&quot;:{\&quot;instanceId\&quot;:[\&quot;{{RESOURCE_ID}}\&quot;]}}}&quot; \
+    --task-invocation-parameters &quot;{\&quot;Automation\&quot;:{\&quot;DocumentVersion\&quot;:\&quot;\$LATEST\&quot;,\&quot;Parameters\&quot;:{\&quot;InstanceId\&quot;:[\&quot;{{RESOURCE_ID}}\&quot;]}}}&quot; \
     --priority 0 \
     --max-concurrency 1 \
     --max-errors 1 \
@@ -531,7 +531,7 @@ Prints a JSON skeleton to standard output without sending an API request. If pro
     --task-arn arn:aws:lambda:us-east-1:111222333444:function:SSMTestLAMBDA \
     --service-role-arn arn:aws:iam::111222333444:role/SSM \
     --task-type LAMBDA \
-    --task-invocation-parameters &#x27;{&quot;Lambda&quot;:{&quot;Payload&quot;:&quot;{\&quot;instanceId\&quot;:\&quot;{{RESOURCE_ID}}\&quot;,\&quot;targetType\&quot;:\&quot;{{TARGET_TYPE}}\&quot;}&quot;,&quot;Qualifier&quot;:&quot;$LATEST&quot;}}&#x27; \
+    --task-invocation-parameters &#x27;{&quot;Lambda&quot;:{&quot;Payload&quot;:&quot;{\&quot;InstanceId\&quot;:\&quot;{{RESOURCE_ID}}\&quot;,\&quot;targetType\&quot;:\&quot;{{TARGET_TYPE}}\&quot;}&quot;,&quot;Qualifier&quot;:&quot;$LATEST&quot;}}&#x27; \
     --priority 0 \
     --max-concurrency 10 \
     --max-errors 5 \
@@ -572,7 +572,7 @@ Prints a JSON skeleton to standard output without sending an API request. If pro
     --task-arn arn:aws:states:us-east-1:111222333444:stateMachine:SSMTestStateMachine \
     --service-role-arn arn:aws:iam::111222333444:role/MaintenanceWindows \
     --task-type STEP_FUNCTIONS \
-    --task-invocation-parameters &#x27;{&quot;StepFunctions&quot;:{&quot;Input&quot;:&quot;{\&quot;instanceId\&quot;:\&quot;{{RESOURCE_ID}}\&quot;}&quot;}}&#x27; \
+    --task-invocation-parameters &#x27;{&quot;StepFunctions&quot;:{&quot;Input&quot;:&quot;{\&quot;InstanceId\&quot;:\&quot;{{RESOURCE_ID}}\&quot;}&quot;}}&#x27; \
     --priority 0 \
     --max-concurrency 10 \
     --max-errors 5 \
