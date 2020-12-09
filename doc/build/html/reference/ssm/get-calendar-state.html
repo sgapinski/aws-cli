@@ -1,0 +1,280 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>get-calendar-state &mdash; AWS CLI 1.18.192 Command Reference</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../../_static/jquery-1.9.1.min.js"></script>
+  <script src="/SdkStatic/sdk-priv.js" async="true"></script>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.18.192',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.18.192 Command Reference" href="../../index.html" />
+    <link rel="up" title="ssm" href="../ssm/index.html" />
+    <link rel="next" title="get-command-invocation" href="../ssm/get-command-invocation.html" />
+    <link rel="prev" title="get-automation-execution" href="../ssm/get-automation-execution.html" />
+  <script type="text/javascript" src="/assets/js/awsdocs-boot.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="guide-name" content="API Reference">
+  <meta name="service-name" content="AWS CLI">
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../../index.html">AWS CLI Command Reference</a>
+        <ul class="nav">
+<li><a href="../../index.html">Home</a></li>
+<li><a href="http://docs.aws.amazon.com/cli/latest/userguide/">User Guide</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="https://ghbtns.com/github-btn.html?user=aws&repo=aws-cli&type=watch&count=true&size=small"
+                  allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!--REGION_DISCLAIMER_DO_NOT_REMOVE-->
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../ssm/get-command-invocation.html" title="get-command-invocation"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../ssm/get-automation-execution.html" title="get-automation-execution"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.18.192 Command Reference</a> &raquo;</li>
+          <li><a href="../index.html" >aws</a> &raquo;</li>
+          <li><a href="../ssm/index.html" accesskey="U">ssm</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="../ssm/get-automation-execution.html" title="previous chapter (use the left arrow)">&larr; get-automation-execution</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="../ssm/get-command-invocation.html" title="next chapter (use the right arrow)">get-command-invocation &rarr;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">get-calendar-state</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=AWS%20Command%20Line%20Interface&hidden_guide_name=Reference}&topic_url=https%3A%2F%2Fdocs.aws.amazon.com%2Fcli%2Flatest%2Freference/ssm/get-calendar-state.html">Give us feedback</a> or
+    send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div><div class="left-bar-other">
+  <h3>User Guide</h3>
+  <p>First time using the AWS CLI? See the
+  <a href="http://docs.aws.amazon.com/cli/latest/userguide/">User Guide</a> for
+  help getting started.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+                <div class="well">
+                    <p>
+                        <strong>Note:</strong>
+                        You are viewing the documentation for an older major version of the AWS CLI (version 1).
+                    </p>
+                    <p>
+                        AWS CLI version 2, the latest major version of AWS CLI, is now stable and recommended for general use.
+                        
+                            To view this page for the AWS CLI version 2, click
+                            <a href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/get-calendar-state.html">here</a>.
+                        
+                        For more information see the AWS CLI version 2
+                        <a href="https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html">installation instructions</a>
+                        and
+                        <a href="https://docs.aws.amazon.com/cli/latest/userguide/cliv2-migration.html">migration guide</a>.
+                    </p>
+                </div>
+              
+  <p>[ <a class="reference internal" href="../index.html#cli-aws"><em>aws</em></a> . <a class="reference internal" href="../ssm/index.html#cli-aws-ssm"><em>ssm</em></a> ]</p>
+<div class="section" id="get-calendar-state">
+<span id="cli-aws-ssm-get-calendar-state"></span><h1>get-calendar-state<a class="headerlink" href="#get-calendar-state" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Gets the state of the AWS Systems Manager Change Calendar at an optional, specified time. If you specify a time, <tt class="docutils literal"><span class="pre">GetCalendarState</span></tt> returns the state of the calendar at a specific time, and returns the next time that the Change Calendar state will transition. If you do not specify a time, <tt class="docutils literal"><span class="pre">GetCalendarState</span></tt> assumes the current time. Change Calendar entries have two possible states: <tt class="docutils literal"><span class="pre">OPEN</span></tt> or <tt class="docutils literal"><span class="pre">CLOSED</span></tt> .</p>
+<p>If you specify more than one calendar in a request, the command returns the status of <tt class="docutils literal"><span class="pre">OPEN</span></tt> only if all calendars in the request are open. If one or more calendars in the request are closed, the status returned is <tt class="docutils literal"><span class="pre">CLOSED</span></tt> .</p>
+<p>For more information about Systems Manager Change Calendar, see <a class="reference external" href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar.html">AWS Systems Manager Change Calendar</a> in the <em>AWS Systems Manager User Guide</em> .</p>
+<p>See also: <a class="reference external" href="https://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetCalendarState">AWS API Documentation</a></p>
+<p>See <a class="reference internal" href="../index.html"><em>'aws help'</em></a> for descriptions of global parameters.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><pre>  get-calendar-state
+--calendar-names &lt;value&gt;
+[--at-time &lt;value&gt;]
+[--cli-input-json &lt;value&gt;]
+[--generate-cli-skeleton &lt;value&gt;]</pre>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">--calendar-names</span></tt> (list)</p>
+<blockquote>
+<div><p>The names or Amazon Resource Names (ARNs) of the Systems Manager documents that represent the calendar entries for which you want to get the state.</p>
+<p>(string)</p>
+</div></blockquote>
+<p>Syntax:</p>
+<div class="highlight-python"><pre>&quot;string&quot; &quot;string&quot; ...</pre>
+</div>
+<p><tt class="docutils literal"><span class="pre">--at-time</span></tt> (string)</p>
+<blockquote>
+<div>(Optional) The specific time for which you want to get calendar state information, in <a class="reference external" href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format. If you do not add <tt class="docutils literal"><span class="pre">AtTime</span></tt> , the current time is assumed.</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">--cli-input-json</span></tt> (string)
+Performs service operation based on the JSON string provided. The JSON string follows the format provided by <tt class="docutils literal"><span class="pre">--generate-cli-skeleton</span></tt>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally.</p>
+<p><tt class="docutils literal"><span class="pre">--generate-cli-skeleton</span></tt> (string)
+Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value <tt class="docutils literal"><span class="pre">input</span></tt>, prints a sample input JSON that can be used as an argument for <tt class="docutils literal"><span class="pre">--cli-input-json</span></tt>. If provided with the value <tt class="docutils literal"><span class="pre">output</span></tt>, it validates the command inputs and returns a sample output JSON for that command.</p>
+<p>See <a class="reference internal" href="../index.html"><em>'aws help'</em></a> for descriptions of global parameters.</p>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p><strong>Example 1: To get the current state of a change calendar</strong></p>
+<p>This <tt class="docutils literal"><span class="pre">get-calendar-state</span></tt> example returns the state of a calendar at the current time. Because the example doesn't specify a time, the current state of the calendar is reported.</p>
+<div class="highlight-python"><pre>aws ssm get-calendar-state \
+    --calendar-names &quot;MyCalendar&quot;</pre>
+</div>
+<p>Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;State&quot;</span><span class="p">:</span> <span class="s2">&quot;OPEN&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;AtTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-02-19T22:28:51Z&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;NextTransitionTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-02-24T21:15:19Z&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example 2: To get the state of a change calendar at a specified time</strong></p>
+<p>This <tt class="docutils literal"><span class="pre">get-calendar-state</span></tt> example returns the state of a calendar at the specified time.</p>
+<div class="highlight-python"><pre>aws ssm get-calendar-state \
+    --calendar-names &quot;MyCalendar&quot; \
+    --at-time &quot;2020-07-19T21:15:19Z&quot;</pre>
+</div>
+<p>Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;State&quot;</span><span class="p">:</span> <span class="s2">&quot;CLOSED&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;AtTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-07-19T21:15:19Z&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>For more information, see <a class="reference external" href="https://docs.aws.amazon.com/systems-manager/latest/userguide/change-calendar-getstate.html">Get the State of the Change Calendar</a> in the <em>AWS Systems Manager User Guide</em>.</p>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>State -&gt; (string)</p>
+<blockquote>
+<div>The state of the calendar. An <tt class="docutils literal"><span class="pre">OPEN</span></tt> calendar indicates that actions are allowed to proceed, and a <tt class="docutils literal"><span class="pre">CLOSED</span></tt> calendar indicates that actions are not allowed to proceed.</div></blockquote>
+<p>AtTime -&gt; (string)</p>
+<blockquote>
+<div>The time, as an <a class="reference external" href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> string, that you specified in your command. If you did not specify a time, <tt class="docutils literal"><span class="pre">GetCalendarState</span></tt> uses the current time.</div></blockquote>
+<p>NextTransitionTime -&gt; (string)</p>
+<blockquote>
+<div>The time, as an <a class="reference external" href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> string, that the calendar state will change. If the current calendar state is <tt class="docutils literal"><span class="pre">OPEN</span></tt> , <tt class="docutils literal"><span class="pre">NextTransitionTime</span></tt> indicates when the calendar state changes to <tt class="docutils literal"><span class="pre">CLOSED</span></tt> , and vice-versa.</div></blockquote>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="../ssm/get-automation-execution.html" title="previous chapter (use the left arrow)">&larr; get-automation-execution</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="../ssm/get-command-invocation.html" title="next chapter (use the right arrow)">get-command-invocation &rarr;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../ssm/get-command-invocation.html" title="get-command-invocation"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../ssm/get-automation-execution.html" title="get-automation-execution"
+             >previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.18.192 Command Reference</a> &raquo;</li>
+          <li><a href="../index.html" >aws</a> &raquo;</li>
+          <li><a href="../ssm/index.html" >ssm</a> &raquo;</li> 
+      </ul>
+    </div>
+  <div id="awsdocs-legal-zone-copyright" class="footer container"></div>
+
+
+
+  
+    
+  
+  </body>
+</html>

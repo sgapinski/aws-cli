@@ -1,0 +1,629 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>list-commands &mdash; AWS CLI 1.18.192 Command Reference</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../../_static/jquery-1.9.1.min.js"></script>
+  <script src="/SdkStatic/sdk-priv.js" async="true"></script>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.18.192',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.18.192 Command Reference" href="../../index.html" />
+    <link rel="up" title="ssm" href="../ssm/index.html" />
+    <link rel="next" title="list-compliance-items" href="../ssm/list-compliance-items.html" />
+    <link rel="prev" title="list-command-invocations" href="../ssm/list-command-invocations.html" />
+  <script type="text/javascript" src="/assets/js/awsdocs-boot.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="guide-name" content="API Reference">
+  <meta name="service-name" content="AWS CLI">
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../../index.html">AWS CLI Command Reference</a>
+        <ul class="nav">
+<li><a href="../../index.html">Home</a></li>
+<li><a href="http://docs.aws.amazon.com/cli/latest/userguide/">User Guide</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="https://ghbtns.com/github-btn.html?user=aws&repo=aws-cli&type=watch&count=true&size=small"
+                  allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!--REGION_DISCLAIMER_DO_NOT_REMOVE-->
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../ssm/list-compliance-items.html" title="list-compliance-items"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../ssm/list-command-invocations.html" title="list-command-invocations"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.18.192 Command Reference</a> &raquo;</li>
+          <li><a href="../index.html" >aws</a> &raquo;</li>
+          <li><a href="../ssm/index.html" accesskey="U">ssm</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="../ssm/list-command-invocations.html" title="previous chapter (use the left arrow)">&larr; list-command-invocations</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="../ssm/list-compliance-items.html" title="next chapter (use the right arrow)">list-compliance-items &rarr;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">list-commands</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=AWS%20Command%20Line%20Interface&hidden_guide_name=Reference}&topic_url=https%3A%2F%2Fdocs.aws.amazon.com%2Fcli%2Flatest%2Freference/ssm/list-commands.html">Give us feedback</a> or
+    send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div><div class="left-bar-other">
+  <h3>User Guide</h3>
+  <p>First time using the AWS CLI? See the
+  <a href="http://docs.aws.amazon.com/cli/latest/userguide/">User Guide</a> for
+  help getting started.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+                <div class="well">
+                    <p>
+                        <strong>Note:</strong>
+                        You are viewing the documentation for an older major version of the AWS CLI (version 1).
+                    </p>
+                    <p>
+                        AWS CLI version 2, the latest major version of AWS CLI, is now stable and recommended for general use.
+                        
+                            To view this page for the AWS CLI version 2, click
+                            <a href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/list-commands.html">here</a>.
+                        
+                        For more information see the AWS CLI version 2
+                        <a href="https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html">installation instructions</a>
+                        and
+                        <a href="https://docs.aws.amazon.com/cli/latest/userguide/cliv2-migration.html">migration guide</a>.
+                    </p>
+                </div>
+              
+  <p>[ <a class="reference internal" href="../index.html#cli-aws"><em>aws</em></a> . <a class="reference internal" href="../ssm/index.html#cli-aws-ssm"><em>ssm</em></a> ]</p>
+<div class="section" id="list-commands">
+<span id="cli-aws-ssm-list-commands"></span><h1>list-commands<a class="headerlink" href="#list-commands" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Lists the commands requested by users of the AWS account.</p>
+<p>See also: <a class="reference external" href="https://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListCommands">AWS API Documentation</a></p>
+<p>See <a class="reference internal" href="../index.html"><em>'aws help'</em></a> for descriptions of global parameters.</p>
+<p><tt class="docutils literal"><span class="pre">list-commands</span></tt> is a paginated operation. Multiple API calls may be issued in order to retrieve the entire data set of results. You can disable pagination by providing the <tt class="docutils literal"><span class="pre">--no-paginate</span></tt> argument.
+When using <tt class="docutils literal"><span class="pre">--output</span> <span class="pre">text</span></tt> and the <tt class="docutils literal"><span class="pre">--query</span></tt> argument on a paginated response, the <tt class="docutils literal"><span class="pre">--query</span></tt> argument must extract data from the results of the following query expressions: <tt class="docutils literal"><span class="pre">Commands</span></tt></p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><pre>  list-commands
+[--command-id &lt;value&gt;]
+[--instance-id &lt;value&gt;]
+[--filters &lt;value&gt;]
+[--cli-input-json &lt;value&gt;]
+[--starting-token &lt;value&gt;]
+[--page-size &lt;value&gt;]
+[--max-items &lt;value&gt;]
+[--generate-cli-skeleton &lt;value&gt;]</pre>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">--command-id</span></tt> (string)</p>
+<blockquote>
+<div>(Optional) If provided, lists only the specified command.</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">--instance-id</span></tt> (string)</p>
+<blockquote>
+<div><p>(Optional) Lists commands issued against this instance ID.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can't specify an instance ID in the same command that you specify <tt class="docutils literal"><span class="pre">Status</span></tt> = <tt class="docutils literal"><span class="pre">Pending</span></tt> . This is because the command has not reached the instance yet.</p>
+</div>
+</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">--filters</span></tt> (list)</p>
+<blockquote>
+<div><p>(Optional) One or more filters. Use a filter to return a more specific list of results.</p>
+<p>(structure)</p>
+<blockquote>
+<div><p>Describes a command filter.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">An instance ID can't be specified when a command status is <tt class="docutils literal"><span class="pre">Pending</span></tt> because the command hasn't run on the instance yet.</p>
+</div>
+<p>key -&gt; (string)</p>
+<blockquote>
+<div>The name of the filter.</div></blockquote>
+<p>value -&gt; (string)</p>
+<blockquote>
+<div><p>The filter value. Valid values for each filter key are as follows:</p>
+<ul class="simple">
+<li><strong>InvokedAfter</strong> : Specify a timestamp to limit your results. For example, specify <tt class="docutils literal"><span class="pre">2018-07-07T00:00:00Z</span></tt> to see a list of command executions occurring July 7, 2018, and later.</li>
+<li><strong>InvokedBefore</strong> : Specify a timestamp to limit your results. For example, specify <tt class="docutils literal"><span class="pre">2018-07-07T00:00:00Z</span></tt> to see a list of command executions from before July 7, 2018.</li>
+<li><strong>Status</strong> : Specify a valid command status to see a list of all command executions with that status. Status values you can specify include:<ul>
+<li><tt class="docutils literal"><span class="pre">Pending</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">InProgress</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">Success</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">Cancelled</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">Failed</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">TimedOut</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">Cancelling</span></tt></li>
+</ul>
+</li>
+<li><strong>DocumentName</strong> : Specify name of the SSM document for which you want to see command execution results. For example, specify <tt class="docutils literal"><span class="pre">AWS-RunPatchBaseline</span></tt> to see command executions that used this SSM document to perform security patching operations on instances.</li>
+<li><strong>ExecutionStage</strong> : Specify one of the following values:<ul>
+<li><tt class="docutils literal"><span class="pre">Executing</span></tt> : Returns a list of command executions that are currently still running.</li>
+<li><tt class="docutils literal"><span class="pre">Complete</span></tt> : Returns a list of command executions that have already completed.</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-python"><pre>key=string,value=string ...</pre>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-python"><pre>[
+  {
+    &quot;key&quot;: &quot;InvokedAfter&quot;|&quot;InvokedBefore&quot;|&quot;Status&quot;|&quot;ExecutionStage&quot;|&quot;DocumentName&quot;,
+    &quot;value&quot;: &quot;string&quot;
+  }
+  ...
+]</pre>
+</div>
+<p><tt class="docutils literal"><span class="pre">--cli-input-json</span></tt> (string)
+Performs service operation based on the JSON string provided. The JSON string follows the format provided by <tt class="docutils literal"><span class="pre">--generate-cli-skeleton</span></tt>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally.</p>
+<p><tt class="docutils literal"><span class="pre">--starting-token</span></tt> (string)</p>
+<blockquote>
+<div><p>A token to specify where to start paginating. This is the <tt class="docutils literal"><span class="pre">NextToken</span></tt> from a previously truncated response.</p>
+<p>For usage examples, see <a class="reference external" href="https://docs.aws.amazon.com/cli/latest/userguide/pagination.html">Pagination</a> in the <em>AWS Command Line Interface User Guide</em> .</p>
+</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">--page-size</span></tt> (integer)</p>
+<blockquote>
+<div><p>The size of each page to get in the AWS service call. This does not affect the number of items returned in the command's output. Setting a smaller page size results in more calls to the AWS service, retrieving fewer items in each call. This can help prevent the AWS service calls from timing out.</p>
+<p>For usage examples, see <a class="reference external" href="https://docs.aws.amazon.com/cli/latest/userguide/pagination.html">Pagination</a> in the <em>AWS Command Line Interface User Guide</em> .</p>
+</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">--max-items</span></tt> (integer)</p>
+<blockquote>
+<div><p>The total number of items to return in the command's output. If the total number of items available is more than the value specified, a <tt class="docutils literal"><span class="pre">NextToken</span></tt> is provided in the command's output. To resume pagination, provide the <tt class="docutils literal"><span class="pre">NextToken</span></tt> value in the <tt class="docutils literal"><span class="pre">starting-token</span></tt> argument of a subsequent command. <strong>Do not</strong> use the <tt class="docutils literal"><span class="pre">NextToken</span></tt> response element directly outside of the AWS CLI.</p>
+<p>For usage examples, see <a class="reference external" href="https://docs.aws.amazon.com/cli/latest/userguide/pagination.html">Pagination</a> in the <em>AWS Command Line Interface User Guide</em> .</p>
+</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">--generate-cli-skeleton</span></tt> (string)
+Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value <tt class="docutils literal"><span class="pre">input</span></tt>, prints a sample input JSON that can be used as an argument for <tt class="docutils literal"><span class="pre">--cli-input-json</span></tt>. If provided with the value <tt class="docutils literal"><span class="pre">output</span></tt>, it validates the command inputs and returns a sample output JSON for that command.</p>
+<p>See <a class="reference internal" href="../index.html"><em>'aws help'</em></a> for descriptions of global parameters.</p>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p><strong>Example 1: To get the status of a specific command</strong></p>
+<p>The following <tt class="docutils literal"><span class="pre">list-commands</span></tt> example retrieves and displays the status of the specified command.</p>
+<div class="highlight-python"><pre>aws ssm list-commands \
+    --command-id &quot;0831e1a8-a1ac-4257-a1fd-c831bEXAMPLE&quot;</pre>
+</div>
+<p><strong>Example 2: To get the status of commands requested after a specific date</strong></p>
+<p>The following <tt class="docutils literal"><span class="pre">list-commands</span></tt> example retrieves the details of commands requested after the specified date.</p>
+<div class="highlight-python"><pre>aws ssm list-commands \
+    --filter &quot;key=InvokedAfter,value=2020-02-01T00:00:00Z&quot;</pre>
+</div>
+<p><strong>Example 3: To list all commands requested in an AWS account</strong></p>
+<p>The following <tt class="docutils literal"><span class="pre">list-commands</span></tt> example lists all commands requested by users in the current AWS account and Region.</p>
+<div class="highlight-python"><pre>aws ssm list-commands</pre>
+</div>
+<p>Output:</p>
+<div class="highlight-python"><pre>{
+    &quot;Commands&quot;: [
+        {
+            &quot;CommandId&quot;: &quot;8bee3135-398c-4d31-99b6-e42d2EXAMPLE&quot;,
+            &quot;DocumentName&quot;: &quot;AWS-UpdateSSMAgent&quot;,
+            &quot;DocumentVersion&quot;: &quot;&quot;,
+            &quot;Comment&quot;: &quot;b48291dd-ba76-43e0-b9df-13e11ddaac26:6960febb-2907-4b59-8e1a-d6ce8EXAMPLE&quot;,
+            &quot;ExpiresAfter&quot;: &quot;2020-02-19T11:28:02.500000-08:00&quot;,
+            &quot;Parameters&quot;: {},
+            &quot;InstanceIds&quot;: [
+                &quot;i-028ea792daEXAMPLE&quot;,
+                &quot;i-02feef8c46EXAMPLE&quot;,
+                &quot;i-038613f3f0EXAMPLE&quot;,
+                &quot;i-03a530a2d4EXAMPLE&quot;,
+                &quot;i-083b678d37EXAMPLE&quot;,
+                &quot;i-0dee81debaEXAMPLE&quot;
+            ],
+            &quot;Targets&quot;: [],
+            &quot;RequestedDateTime&quot;: &quot;2020-02-19T10:18:02.500000-08:00&quot;,
+            &quot;Status&quot;: &quot;Success&quot;,
+            &quot;StatusDetails&quot;: &quot;Success&quot;,
+            &quot;OutputS3BucketName&quot;: &quot;&quot;,
+            &quot;OutputS3KeyPrefix&quot;: &quot;&quot;,
+            &quot;MaxConcurrency&quot;: &quot;50&quot;,
+            &quot;MaxErrors&quot;: &quot;100%&quot;,
+            &quot;TargetCount&quot;: 6,
+            &quot;CompletedCount&quot;: 6,
+            &quot;ErrorCount&quot;: 0,
+            &quot;DeliveryTimedOutCount&quot;: 0,
+            &quot;ServiceRole&quot;: &quot;&quot;,
+            &quot;NotificationConfig&quot;: {
+                &quot;NotificationArn&quot;: &quot;&quot;,
+                &quot;NotificationEvents&quot;: [],
+                &quot;NotificationType&quot;: &quot;&quot;
+            },
+            &quot;CloudWatchOutputConfig&quot;: {
+                &quot;CloudWatchLogGroupName&quot;: &quot;&quot;,
+                &quot;CloudWatchOutputEnabled&quot;: false
+            }
+        }
+        {
+            &quot;CommandId&quot;: &quot;e9ade581-c03d-476b-9b07-26667EXAMPLE&quot;,
+            &quot;DocumentName&quot;: &quot;AWS-FindWindowsUpdates&quot;,
+            &quot;DocumentVersion&quot;: &quot;1&quot;,
+            &quot;Comment&quot;: &quot;&quot;,
+            &quot;ExpiresAfter&quot;: &quot;2020-01-24T12:37:31.874000-08:00&quot;,
+            &quot;Parameters&quot;: {
+                &quot;KbArticleIds&quot;: [
+                    &quot;&quot;
+                ],
+                &quot;UpdateLevel&quot;: [
+                    &quot;All&quot;
+                ]
+            },
+            &quot;InstanceIds&quot;: [],
+            &quot;Targets&quot;: [
+                {
+                    &quot;Key&quot;: &quot;InstanceIds&quot;,
+                    &quot;Values&quot;: [
+                        &quot;i-00ec29b21eEXAMPLE&quot;,
+                        &quot;i-09911ddd90EXAMPLE&quot;
+                    ]
+                }
+            ],
+            &quot;RequestedDateTime&quot;: &quot;2020-01-24T11:27:31.874000-08:00&quot;,
+            &quot;Status&quot;: &quot;Success&quot;,
+            &quot;StatusDetails&quot;: &quot;Success&quot;,
+            &quot;OutputS3BucketName&quot;: &quot;my-us-east-2-bucket&quot;,
+            &quot;OutputS3KeyPrefix&quot;: &quot;my-rc-output&quot;,
+            &quot;MaxConcurrency&quot;: &quot;50&quot;,
+            &quot;MaxErrors&quot;: &quot;0&quot;,
+            &quot;TargetCount&quot;: 2,
+            &quot;CompletedCount&quot;: 2,
+            &quot;ErrorCount&quot;: 0,
+            &quot;DeliveryTimedOutCount&quot;: 0,
+            &quot;ServiceRole&quot;: &quot;arn:aws:iam::111222333444:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM&quot;,
+            &quot;NotificationConfig&quot;: {
+                &quot;NotificationArn&quot;: &quot;arn:aws:sns:us-east-2:111222333444:my-us-east-2-notification-arn&quot;,
+                &quot;NotificationEvents&quot;: [
+                    &quot;All&quot;
+                ],
+                &quot;NotificationType&quot;: &quot;Invocation&quot;
+            },
+            &quot;CloudWatchOutputConfig&quot;: {
+                &quot;CloudWatchLogGroupName&quot;: &quot;&quot;,
+                &quot;CloudWatchOutputEnabled&quot;: false
+            }
+        }
+        {
+            &quot;CommandId&quot;: &quot;d539b6c3-70e8-4853-80e5-0ce4fEXAMPLE&quot;,
+            &quot;DocumentName&quot;: &quot;AWS-RunPatchBaseline&quot;,
+            &quot;DocumentVersion&quot;: &quot;1&quot;,
+            &quot;Comment&quot;: &quot;&quot;,
+            &quot;ExpiresAfter&quot;: &quot;2020-01-24T12:21:04.350000-08:00&quot;,
+            &quot;Parameters&quot;: {
+                &quot;InstallOverrideList&quot;: [
+                    &quot;&quot;
+                ],
+                &quot;Operation&quot;: [
+                    &quot;Install&quot;
+                ],
+                &quot;RebootOption&quot;: [
+                    &quot;RebootIfNeeded&quot;
+                ],
+                &quot;SnapshotId&quot;: [
+                    &quot;&quot;
+                ]
+            },
+            &quot;InstanceIds&quot;: [],
+            &quot;Targets&quot;: [
+                {
+                    &quot;Key&quot;: &quot;InstanceIds&quot;,
+                    &quot;Values&quot;: [
+                        &quot;i-00ec29b21eEXAMPLE&quot;,
+                        &quot;i-09911ddd90EXAMPLE&quot;
+                    ]
+                }
+            ],
+            &quot;RequestedDateTime&quot;: &quot;2020-01-24T11:11:04.350000-08:00&quot;,
+            &quot;Status&quot;: &quot;Success&quot;,
+            &quot;StatusDetails&quot;: &quot;Success&quot;,
+            &quot;OutputS3BucketName&quot;: &quot;my-us-east-2-bucket&quot;,
+            &quot;OutputS3KeyPrefix&quot;: &quot;my-rc-output&quot;,
+            &quot;MaxConcurrency&quot;: &quot;50&quot;,
+            &quot;MaxErrors&quot;: &quot;0&quot;,
+            &quot;TargetCount&quot;: 2,
+            &quot;CompletedCount&quot;: 2,
+            &quot;ErrorCount&quot;: 0,
+            &quot;DeliveryTimedOutCount&quot;: 0,
+            &quot;ServiceRole&quot;: &quot;arn:aws:iam::111222333444:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM&quot;,
+            &quot;NotificationConfig&quot;: {
+                &quot;NotificationArn&quot;: &quot;arn:aws:sns:us-east-2:111222333444:my-us-east-2-notification-arn&quot;,
+                &quot;NotificationEvents&quot;: [
+                    &quot;All&quot;
+                ],
+                &quot;NotificationType&quot;: &quot;Invocation&quot;
+            },
+            &quot;CloudWatchOutputConfig&quot;: {
+                &quot;CloudWatchLogGroupName&quot;: &quot;&quot;,
+                &quot;CloudWatchOutputEnabled&quot;: false
+            }
+        }
+    ]
+}</pre>
+</div>
+<p>For more information, see <a class="reference external" href="https://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html">Running Commands Using Systems Manager Run Command</a> in the <em>AWS Systems Manager User Guide</em>.</p>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>Commands -&gt; (list)</p>
+<blockquote>
+<div><p>(Optional) The list of commands requested by the user.</p>
+<p>(structure)</p>
+<blockquote>
+<div><p>Describes a command request.</p>
+<p>CommandId -&gt; (string)</p>
+<blockquote>
+<div>A unique identifier for this command.</div></blockquote>
+<p>DocumentName -&gt; (string)</p>
+<blockquote>
+<div>The name of the document requested for execution.</div></blockquote>
+<p>DocumentVersion -&gt; (string)</p>
+<blockquote>
+<div>The SSM document version.</div></blockquote>
+<p>Comment -&gt; (string)</p>
+<blockquote>
+<div>User-specified information about the command, such as a brief description of what the command should do.</div></blockquote>
+<p>ExpiresAfter -&gt; (timestamp)</p>
+<blockquote>
+<div>If this time is reached and the command has not already started running, it will not run. Calculated based on the ExpiresAfter user input provided as part of the SendCommand API.</div></blockquote>
+<p>Parameters -&gt; (map)</p>
+<blockquote>
+<div><p>The parameter values to be inserted in the document when running the command.</p>
+<p>key -&gt; (string)</p>
+<p>value -&gt; (list)</p>
+<blockquote>
+<div>(string)</div></blockquote>
+</div></blockquote>
+<p>InstanceIds -&gt; (list)</p>
+<blockquote>
+<div><p>The instance IDs against which this command was requested.</p>
+<p>(string)</p>
+</div></blockquote>
+<p>Targets -&gt; (list)</p>
+<blockquote>
+<div><p>An array of search criteria that targets instances using a Key,Value combination that you specify. Targets is required if you don't provide one or more instance IDs in the call.</p>
+<p>(structure)</p>
+<blockquote>
+<div><p>An array of search criteria that targets instances using a Key,Value combination that you specify.</p>
+<p>Supported formats include the following.</p>
+<ul class="simple">
+<li><a href="#id1"><span class="problematic" id="id2">``</span></a>Key=InstanceIds,Values=*instance-id-1* ,*instance-id-2* ,*instance-id-3* ``</li>
+<li><a href="#id3"><span class="problematic" id="id4">``</span></a>Key=tag:<em>my-tag-key</em> ,Values=*my-tag-value-1* ,*my-tag-value-2* ``</li>
+<li><a href="#id5"><span class="problematic" id="id6">``</span></a>Key=tag-key,Values=*my-tag-key-1* ,*my-tag-key-2* ``</li>
+<li><strong>Run Command and Maintenance window targets only</strong> : <a href="#id7"><span class="problematic" id="id8">``</span></a>Key=resource-groups:Name,Values=*resource-group-name* ``</li>
+<li><strong>Maintenance window targets only</strong> : <a href="#id9"><span class="problematic" id="id10">``</span></a>Key=resource-groups:ResourceTypeFilters,Values=*resource-type-1* ,*resource-type-2* ``</li>
+<li><strong>Automation targets only</strong> : <a href="#id11"><span class="problematic" id="id12">``</span></a>Key=ResourceGroup;Values=*resource-group-name* ``</li>
+</ul>
+<p>For example:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">Key=InstanceIds,Values=i-02573cafcfEXAMPLE,i-0471e04240EXAMPLE,i-07782c72faEXAMPLE</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">Key=tag:CostCenter,Values=CostCenter1,CostCenter2,CostCenter3</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">Key=tag-key,Values=Name,Instance-Type,CostCenter</span></tt></li>
+<li><strong>Run Command and Maintenance window targets only</strong> : <tt class="docutils literal"><span class="pre">Key=resource-groups:Name,Values=ProductionResourceGroup</span></tt>   This example demonstrates how to target all resources in the resource group <strong>ProductionResourceGroup</strong> in your maintenance window.</li>
+<li><strong>Maintenance window targets only</strong> : <a href="#id13"><span class="problematic" id="id14">``</span></a>Key=resource-groups:ResourceTypeFilters,Values=*AWS::EC2::INSTANCE* ,*AWS::EC2::VPC* ``   This example demonstrates how to target only EC2 instances and VPCs in your maintenance window.</li>
+<li><strong>Automation targets only</strong> : <tt class="docutils literal"><span class="pre">Key=ResourceGroup,Values=MyResourceGroup</span></tt></li>
+<li><strong>State Manager association targets only</strong> : <tt class="docutils literal"><span class="pre">Key=InstanceIds,Values=*</span></tt>   This example demonstrates how to target all managed instances in the AWS Region where the association was created.</li>
+</ul>
+<p>For more information about how to send commands that target instances using <tt class="docutils literal"><span class="pre">Key,Value</span></tt> parameters, see <a class="reference external" href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-targeting">Targeting multiple instances</a> in the <em>AWS Systems Manager User Guide</em> .</p>
+<p>Key -&gt; (string)</p>
+<blockquote>
+<div>User-defined criteria for sending commands that target instances that meet the criteria.</div></blockquote>
+<p>Values -&gt; (list)</p>
+<blockquote>
+<div><p>User-defined criteria that maps to <tt class="docutils literal"><span class="pre">Key</span></tt> . For example, if you specified <tt class="docutils literal"><span class="pre">tag:ServerRole</span></tt> , you could specify <tt class="docutils literal"><span class="pre">value:WebServer</span></tt> to run a command on instances that include EC2 tags of <tt class="docutils literal"><span class="pre">ServerRole,WebServer</span></tt> .</p>
+<p>(string)</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>RequestedDateTime -&gt; (timestamp)</p>
+<blockquote>
+<div>The date and time the command was requested.</div></blockquote>
+<p>Status -&gt; (string)</p>
+<blockquote>
+<div>The status of the command.</div></blockquote>
+<p>StatusDetails -&gt; (string)</p>
+<blockquote>
+<div><p>A detailed status of the command execution. StatusDetails includes more information than Status because it includes states resulting from error and concurrency control parameters. StatusDetails can show different results than Status. For more information about these statuses, see <a class="reference external" href="https://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html">Understanding command statuses</a> in the <em>AWS Systems Manager User Guide</em> . StatusDetails can be one of the following values:</p>
+<ul class="simple">
+<li>Pending: The command has not been sent to any instances.</li>
+<li>In Progress: The command has been sent to at least one instance but has not reached a final state on all instances.</li>
+<li>Success: The command successfully ran on all invocations. This is a terminal state.</li>
+<li>Delivery Timed Out: The value of MaxErrors or more command invocations shows a status of Delivery Timed Out. This is a terminal state.</li>
+<li>Execution Timed Out: The value of MaxErrors or more command invocations shows a status of Execution Timed Out. This is a terminal state.</li>
+<li>Failed: The value of MaxErrors or more command invocations shows a status of Failed. This is a terminal state.</li>
+<li>Incomplete: The command was attempted on all instances and one or more invocations does not have a value of Success but not enough invocations failed for the status to be Failed. This is a terminal state.</li>
+<li>Canceled: The command was terminated before it was completed. This is a terminal state.</li>
+<li>Rate Exceeded: The number of instances targeted by the command exceeded the account limit for pending invocations. The system has canceled the command before running it on any instance. This is a terminal state.</li>
+</ul>
+</div></blockquote>
+<p>OutputS3Region -&gt; (string)</p>
+<blockquote>
+<div>(Deprecated) You can no longer specify this parameter. The system ignores it. Instead, Systems Manager automatically determines the Region of the S3 bucket.</div></blockquote>
+<p>OutputS3BucketName -&gt; (string)</p>
+<blockquote>
+<div>The S3 bucket where the responses to the command executions should be stored. This was requested when issuing the command.</div></blockquote>
+<p>OutputS3KeyPrefix -&gt; (string)</p>
+<blockquote>
+<div>The S3 directory path inside the bucket where the responses to the command executions should be stored. This was requested when issuing the command.</div></blockquote>
+<p>MaxConcurrency -&gt; (string)</p>
+<blockquote>
+<div>The maximum number of instances that are allowed to run the command at the same time. You can specify a number of instances, such as 10, or a percentage of instances, such as 10%. The default value is 50. For more information about how to use MaxConcurrency, see <a class="reference external" href="https://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html">Running commands using Systems Manager Run Command</a> in the <em>AWS Systems Manager User Guide</em> .</div></blockquote>
+<p>MaxErrors -&gt; (string)</p>
+<blockquote>
+<div>The maximum number of errors allowed before the system stops sending the command to additional targets. You can specify a number of errors, such as 10, or a percentage or errors, such as 10%. The default value is 0. For more information about how to use MaxErrors, see <a class="reference external" href="https://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html">Running commands using Systems Manager Run Command</a> in the <em>AWS Systems Manager User Guide</em> .</div></blockquote>
+<p>TargetCount -&gt; (integer)</p>
+<blockquote>
+<div>The number of targets for the command.</div></blockquote>
+<p>CompletedCount -&gt; (integer)</p>
+<blockquote>
+<div>The number of targets for which the command invocation reached a terminal state. Terminal states include the following: Success, Failed, Execution Timed Out, Delivery Timed Out, Canceled, Terminated, or Undeliverable.</div></blockquote>
+<p>ErrorCount -&gt; (integer)</p>
+<blockquote>
+<div>The number of targets for which the status is Failed or Execution Timed Out.</div></blockquote>
+<p>DeliveryTimedOutCount -&gt; (integer)</p>
+<blockquote>
+<div>The number of targets for which the status is Delivery Timed Out.</div></blockquote>
+<p>ServiceRole -&gt; (string)</p>
+<blockquote>
+<div>The IAM service role that Run Command uses to act on your behalf when sending notifications about command status changes.</div></blockquote>
+<p>NotificationConfig -&gt; (structure)</p>
+<blockquote>
+<div><p>Configurations for sending notifications about command status changes.</p>
+<p>NotificationArn -&gt; (string)</p>
+<blockquote>
+<div>An Amazon Resource Name (ARN) for an Amazon Simple Notification Service (Amazon SNS) topic. Run Command pushes notifications about command status changes to this topic.</div></blockquote>
+<p>NotificationEvents -&gt; (list)</p>
+<blockquote>
+<div><p>The different events for which you can receive notifications. These events include the following: All (events), InProgress, Success, TimedOut, Cancelled, Failed. To learn more about these events, see <a class="reference external" href="https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html">Monitoring Systems Manager status changes using Amazon SNS notifications</a> in the <em>AWS Systems Manager User Guide</em> .</p>
+<p>(string)</p>
+</div></blockquote>
+<p>NotificationType -&gt; (string)</p>
+<blockquote>
+<div>Command: Receive notification when the status of a command changes. Invocation: For commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes.</div></blockquote>
+</div></blockquote>
+<p>CloudWatchOutputConfig -&gt; (structure)</p>
+<blockquote>
+<div><p>CloudWatch Logs information where you want Systems Manager to send the command output.</p>
+<p>CloudWatchLogGroupName -&gt; (string)</p>
+<blockquote>
+<div>The name of the CloudWatch log group where you want to send command output. If you don't specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm/<em>SystemsManagerDocumentName</em> .</div></blockquote>
+<p>CloudWatchOutputEnabled -&gt; (boolean)</p>
+<blockquote>
+<div>Enables Systems Manager to send command output to CloudWatch Logs.</div></blockquote>
+</div></blockquote>
+<p>TimeoutSeconds -&gt; (integer)</p>
+<blockquote>
+<div>The <tt class="docutils literal"><span class="pre">TimeoutSeconds</span></tt> value specified for a command.</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>NextToken -&gt; (string)</p>
+<blockquote>
+<div>(Optional) The token for the next set of items to return. (You received this token from a previous call.)</div></blockquote>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="../ssm/list-command-invocations.html" title="previous chapter (use the left arrow)">&larr; list-command-invocations</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="../ssm/list-compliance-items.html" title="next chapter (use the right arrow)">list-compliance-items &rarr;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../ssm/list-compliance-items.html" title="list-compliance-items"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../ssm/list-command-invocations.html" title="list-command-invocations"
+             >previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.18.192 Command Reference</a> &raquo;</li>
+          <li><a href="../index.html" >aws</a> &raquo;</li>
+          <li><a href="../ssm/index.html" >ssm</a> &raquo;</li> 
+      </ul>
+    </div>
+  <div id="awsdocs-legal-zone-copyright" class="footer container"></div>
+
+
+
+  
+    
+  
+  </body>
+</html>

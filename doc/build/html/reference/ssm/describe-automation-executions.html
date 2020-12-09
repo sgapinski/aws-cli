@@ -1,0 +1,441 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>describe-automation-executions &mdash; AWS CLI 1.18.192 Command Reference</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../../_static/jquery-1.9.1.min.js"></script>
+  <script src="/SdkStatic/sdk-priv.js" async="true"></script>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.18.192',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.18.192 Command Reference" href="../../index.html" />
+    <link rel="up" title="ssm" href="../ssm/index.html" />
+    <link rel="next" title="describe-automation-step-executions" href="../ssm/describe-automation-step-executions.html" />
+    <link rel="prev" title="describe-association-executions" href="../ssm/describe-association-executions.html" />
+  <script type="text/javascript" src="/assets/js/awsdocs-boot.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="guide-name" content="API Reference">
+  <meta name="service-name" content="AWS CLI">
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../../index.html">AWS CLI Command Reference</a>
+        <ul class="nav">
+<li><a href="../../index.html">Home</a></li>
+<li><a href="http://docs.aws.amazon.com/cli/latest/userguide/">User Guide</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="https://ghbtns.com/github-btn.html?user=aws&repo=aws-cli&type=watch&count=true&size=small"
+                  allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!--REGION_DISCLAIMER_DO_NOT_REMOVE-->
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../ssm/describe-automation-step-executions.html" title="describe-automation-step-executions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../ssm/describe-association-executions.html" title="describe-association-executions"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.18.192 Command Reference</a> &raquo;</li>
+          <li><a href="../index.html" >aws</a> &raquo;</li>
+          <li><a href="../ssm/index.html" accesskey="U">ssm</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="../ssm/describe-association-executions.html" title="previous chapter (use the left arrow)">&larr; describe-association-executions</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="../ssm/describe-automation-step-executions.html" title="next chapter (use the right arrow)">describe-automation-step-executions &rarr;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">describe-automation-executions</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=AWS%20Command%20Line%20Interface&hidden_guide_name=Reference}&topic_url=https%3A%2F%2Fdocs.aws.amazon.com%2Fcli%2Flatest%2Freference/ssm/describe-automation-executions.html">Give us feedback</a> or
+    send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div><div class="left-bar-other">
+  <h3>User Guide</h3>
+  <p>First time using the AWS CLI? See the
+  <a href="http://docs.aws.amazon.com/cli/latest/userguide/">User Guide</a> for
+  help getting started.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+                <div class="well">
+                    <p>
+                        <strong>Note:</strong>
+                        You are viewing the documentation for an older major version of the AWS CLI (version 1).
+                    </p>
+                    <p>
+                        AWS CLI version 2, the latest major version of AWS CLI, is now stable and recommended for general use.
+                        
+                            To view this page for the AWS CLI version 2, click
+                            <a href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/describe-automation-executions.html">here</a>.
+                        
+                        For more information see the AWS CLI version 2
+                        <a href="https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html">installation instructions</a>
+                        and
+                        <a href="https://docs.aws.amazon.com/cli/latest/userguide/cliv2-migration.html">migration guide</a>.
+                    </p>
+                </div>
+              
+  <p>[ <a class="reference internal" href="../index.html#cli-aws"><em>aws</em></a> . <a class="reference internal" href="../ssm/index.html#cli-aws-ssm"><em>ssm</em></a> ]</p>
+<div class="section" id="describe-automation-executions">
+<span id="cli-aws-ssm-describe-automation-executions"></span><h1>describe-automation-executions<a class="headerlink" href="#describe-automation-executions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Provides details about all active and terminated Automation executions.</p>
+<p>See also: <a class="reference external" href="https://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeAutomationExecutions">AWS API Documentation</a></p>
+<p>See <a class="reference internal" href="../index.html"><em>'aws help'</em></a> for descriptions of global parameters.</p>
+<p><tt class="docutils literal"><span class="pre">describe-automation-executions</span></tt> is a paginated operation. Multiple API calls may be issued in order to retrieve the entire data set of results. You can disable pagination by providing the <tt class="docutils literal"><span class="pre">--no-paginate</span></tt> argument.
+When using <tt class="docutils literal"><span class="pre">--output</span> <span class="pre">text</span></tt> and the <tt class="docutils literal"><span class="pre">--query</span></tt> argument on a paginated response, the <tt class="docutils literal"><span class="pre">--query</span></tt> argument must extract data from the results of the following query expressions: <tt class="docutils literal"><span class="pre">AutomationExecutionMetadataList</span></tt></p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><pre>  describe-automation-executions
+[--filters &lt;value&gt;]
+[--cli-input-json &lt;value&gt;]
+[--starting-token &lt;value&gt;]
+[--page-size &lt;value&gt;]
+[--max-items &lt;value&gt;]
+[--generate-cli-skeleton &lt;value&gt;]</pre>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">--filters</span></tt> (list)</p>
+<blockquote>
+<div><p>Filters used to limit the scope of executions that are requested.</p>
+<p>(structure)</p>
+<blockquote>
+<div><p>A filter used to match specific automation executions. This is used to limit the scope of Automation execution information returned.</p>
+<p>Key -&gt; (string)</p>
+<blockquote>
+<div>One or more keys to limit the results. Valid filter keys include the following: DocumentNamePrefix, ExecutionStatus, ExecutionId, ParentExecutionId, CurrentAction, StartTimeBefore, StartTimeAfter, TargetResourceGroup.</div></blockquote>
+<p>Values -&gt; (list)</p>
+<blockquote>
+<div><p>The values used to limit the execution information associated with the filter's key.</p>
+<p>(string)</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-python"><pre>Key=string,Values=string,string ...</pre>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-python"><pre>[
+  {
+    &quot;Key&quot;: &quot;DocumentNamePrefix&quot;|&quot;ExecutionStatus&quot;|&quot;ExecutionId&quot;|&quot;ParentExecutionId&quot;|&quot;CurrentAction&quot;|&quot;StartTimeBefore&quot;|&quot;StartTimeAfter&quot;|&quot;AutomationType&quot;|&quot;TagKey&quot;|&quot;TargetResourceGroup&quot;,
+    &quot;Values&quot;: [&quot;string&quot;, ...]
+  }
+  ...
+]</pre>
+</div>
+<p><tt class="docutils literal"><span class="pre">--cli-input-json</span></tt> (string)
+Performs service operation based on the JSON string provided. The JSON string follows the format provided by <tt class="docutils literal"><span class="pre">--generate-cli-skeleton</span></tt>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally.</p>
+<p><tt class="docutils literal"><span class="pre">--starting-token</span></tt> (string)</p>
+<blockquote>
+<div><p>A token to specify where to start paginating. This is the <tt class="docutils literal"><span class="pre">NextToken</span></tt> from a previously truncated response.</p>
+<p>For usage examples, see <a class="reference external" href="https://docs.aws.amazon.com/cli/latest/userguide/pagination.html">Pagination</a> in the <em>AWS Command Line Interface User Guide</em> .</p>
+</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">--page-size</span></tt> (integer)</p>
+<blockquote>
+<div><p>The size of each page to get in the AWS service call. This does not affect the number of items returned in the command's output. Setting a smaller page size results in more calls to the AWS service, retrieving fewer items in each call. This can help prevent the AWS service calls from timing out.</p>
+<p>For usage examples, see <a class="reference external" href="https://docs.aws.amazon.com/cli/latest/userguide/pagination.html">Pagination</a> in the <em>AWS Command Line Interface User Guide</em> .</p>
+</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">--max-items</span></tt> (integer)</p>
+<blockquote>
+<div><p>The total number of items to return in the command's output. If the total number of items available is more than the value specified, a <tt class="docutils literal"><span class="pre">NextToken</span></tt> is provided in the command's output. To resume pagination, provide the <tt class="docutils literal"><span class="pre">NextToken</span></tt> value in the <tt class="docutils literal"><span class="pre">starting-token</span></tt> argument of a subsequent command. <strong>Do not</strong> use the <tt class="docutils literal"><span class="pre">NextToken</span></tt> response element directly outside of the AWS CLI.</p>
+<p>For usage examples, see <a class="reference external" href="https://docs.aws.amazon.com/cli/latest/userguide/pagination.html">Pagination</a> in the <em>AWS Command Line Interface User Guide</em> .</p>
+</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">--generate-cli-skeleton</span></tt> (string)
+Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value <tt class="docutils literal"><span class="pre">input</span></tt>, prints a sample input JSON that can be used as an argument for <tt class="docutils literal"><span class="pre">--cli-input-json</span></tt>. If provided with the value <tt class="docutils literal"><span class="pre">output</span></tt>, it validates the command inputs and returns a sample output JSON for that command.</p>
+<p>See <a class="reference internal" href="../index.html"><em>'aws help'</em></a> for descriptions of global parameters.</p>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p><strong>To describe an automation execution</strong></p>
+<p>The following <tt class="docutils literal"><span class="pre">describe-automation-executions</span></tt> example displays details about an Automation execution.</p>
+<div class="highlight-python"><pre>aws ssm describe-automation-executions \
+    --filters Key=ExecutionId,Values=73c8eef8-f4ee-4a05-820c-e354fEXAMPLE</pre>
+</div>
+<p>Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;AutomationExecutionMetadataList&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;AutomationExecutionId&quot;</span><span class="p">:</span> <span class="s2">&quot;73c8eef8-f4ee-4a05-820c-e354fEXAMPLE&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;DocumentName&quot;</span><span class="p">:</span> <span class="s2">&quot;AWS-StartEC2Instance&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;DocumentVersion&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;AutomationExecutionStatus&quot;</span><span class="p">:</span> <span class="s2">&quot;Success&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;ExecutionStartTime&quot;</span><span class="p">:</span> <span class="mf">1583737233.748</span><span class="p">,</span>
+            <span class="s2">&quot;ExecutionEndTime&quot;</span><span class="p">:</span> <span class="mf">1583737234.719</span><span class="p">,</span>
+            <span class="s2">&quot;ExecutedBy&quot;</span><span class="p">:</span> <span class="s2">&quot;arn:aws:sts::29884EXAMPLE:assumed-role/mw_service_role/OrchestrationService&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;LogFile&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Outputs&quot;</span><span class="p">:</span> <span class="p">{},</span>
+            <span class="s2">&quot;Mode&quot;</span><span class="p">:</span> <span class="s2">&quot;Auto&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Targets&quot;</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="s2">&quot;ResolvedTargets&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;ParameterValues&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                <span class="s2">&quot;Truncated&quot;</span><span class="p">:</span> <span class="n">false</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;AutomationType&quot;</span><span class="p">:</span> <span class="s2">&quot;Local&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>For more information, see <a class="reference external" href="https://docs.aws.amazon.com/systems-manager/latest/userguide/automation-working-executing.html">Running a Simple Automation Workflow</a> in the <em>AWS Systems Manager User Guide</em>.</p>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>AutomationExecutionMetadataList -&gt; (list)</p>
+<blockquote>
+<div><p>The list of details about each automation execution which has occurred which matches the filter specification, if any.</p>
+<p>(structure)</p>
+<blockquote>
+<div><p>Details about a specific Automation execution.</p>
+<p>AutomationExecutionId -&gt; (string)</p>
+<blockquote>
+<div>The execution ID.</div></blockquote>
+<p>DocumentName -&gt; (string)</p>
+<blockquote>
+<div>The name of the Automation document used during execution.</div></blockquote>
+<p>DocumentVersion -&gt; (string)</p>
+<blockquote>
+<div>The document version used during the execution.</div></blockquote>
+<p>AutomationExecutionStatus -&gt; (string)</p>
+<blockquote>
+<div>The status of the execution.</div></blockquote>
+<p>ExecutionStartTime -&gt; (timestamp)</p>
+<blockquote>
+<div>The time the execution started.</div></blockquote>
+<p>ExecutionEndTime -&gt; (timestamp)</p>
+<blockquote>
+<div>The time the execution finished. This is not populated if the execution is still in progress.</div></blockquote>
+<p>ExecutedBy -&gt; (string)</p>
+<blockquote>
+<div>The IAM role ARN of the user who ran the Automation.</div></blockquote>
+<p>LogFile -&gt; (string)</p>
+<blockquote>
+<div>An S3 bucket where execution information is stored.</div></blockquote>
+<p>Outputs -&gt; (map)</p>
+<blockquote>
+<div><p>The list of execution outputs as defined in the Automation document.</p>
+<p>key -&gt; (string)</p>
+<p>value -&gt; (list)</p>
+<blockquote>
+<div>(string)</div></blockquote>
+</div></blockquote>
+<p>Mode -&gt; (string)</p>
+<blockquote>
+<div>The Automation execution mode.</div></blockquote>
+<p>ParentAutomationExecutionId -&gt; (string)</p>
+<blockquote>
+<div>The ExecutionId of the parent Automation.</div></blockquote>
+<p>CurrentStepName -&gt; (string)</p>
+<blockquote>
+<div>The name of the step that is currently running.</div></blockquote>
+<p>CurrentAction -&gt; (string)</p>
+<blockquote>
+<div>The action of the step that is currently running.</div></blockquote>
+<p>FailureMessage -&gt; (string)</p>
+<blockquote>
+<div>The list of execution outputs as defined in the Automation document.</div></blockquote>
+<p>TargetParameterName -&gt; (string)</p>
+<blockquote>
+<div>The list of execution outputs as defined in the Automation document.</div></blockquote>
+<p>Targets -&gt; (list)</p>
+<blockquote>
+<div><p>The targets defined by the user when starting the Automation.</p>
+<p>(structure)</p>
+<blockquote>
+<div><p>An array of search criteria that targets instances using a Key,Value combination that you specify.</p>
+<p>Supported formats include the following.</p>
+<ul class="simple">
+<li><a href="#id1"><span class="problematic" id="id2">``</span></a>Key=InstanceIds,Values=*instance-id-1* ,*instance-id-2* ,*instance-id-3* ``</li>
+<li><a href="#id3"><span class="problematic" id="id4">``</span></a>Key=tag:<em>my-tag-key</em> ,Values=*my-tag-value-1* ,*my-tag-value-2* ``</li>
+<li><a href="#id5"><span class="problematic" id="id6">``</span></a>Key=tag-key,Values=*my-tag-key-1* ,*my-tag-key-2* ``</li>
+<li><strong>Run Command and Maintenance window targets only</strong> : <a href="#id7"><span class="problematic" id="id8">``</span></a>Key=resource-groups:Name,Values=*resource-group-name* ``</li>
+<li><strong>Maintenance window targets only</strong> : <a href="#id9"><span class="problematic" id="id10">``</span></a>Key=resource-groups:ResourceTypeFilters,Values=*resource-type-1* ,*resource-type-2* ``</li>
+<li><strong>Automation targets only</strong> : <a href="#id11"><span class="problematic" id="id12">``</span></a>Key=ResourceGroup;Values=*resource-group-name* ``</li>
+</ul>
+<p>For example:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">Key=InstanceIds,Values=i-02573cafcfEXAMPLE,i-0471e04240EXAMPLE,i-07782c72faEXAMPLE</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">Key=tag:CostCenter,Values=CostCenter1,CostCenter2,CostCenter3</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">Key=tag-key,Values=Name,Instance-Type,CostCenter</span></tt></li>
+<li><strong>Run Command and Maintenance window targets only</strong> : <tt class="docutils literal"><span class="pre">Key=resource-groups:Name,Values=ProductionResourceGroup</span></tt>   This example demonstrates how to target all resources in the resource group <strong>ProductionResourceGroup</strong> in your maintenance window.</li>
+<li><strong>Maintenance window targets only</strong> : <a href="#id13"><span class="problematic" id="id14">``</span></a>Key=resource-groups:ResourceTypeFilters,Values=*AWS::EC2::INSTANCE* ,*AWS::EC2::VPC* ``   This example demonstrates how to target only EC2 instances and VPCs in your maintenance window.</li>
+<li><strong>Automation targets only</strong> : <tt class="docutils literal"><span class="pre">Key=ResourceGroup,Values=MyResourceGroup</span></tt></li>
+<li><strong>State Manager association targets only</strong> : <tt class="docutils literal"><span class="pre">Key=InstanceIds,Values=*</span></tt>   This example demonstrates how to target all managed instances in the AWS Region where the association was created.</li>
+</ul>
+<p>For more information about how to send commands that target instances using <tt class="docutils literal"><span class="pre">Key,Value</span></tt> parameters, see <a class="reference external" href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-targeting">Targeting multiple instances</a> in the <em>AWS Systems Manager User Guide</em> .</p>
+<p>Key -&gt; (string)</p>
+<blockquote>
+<div>User-defined criteria for sending commands that target instances that meet the criteria.</div></blockquote>
+<p>Values -&gt; (list)</p>
+<blockquote>
+<div><p>User-defined criteria that maps to <tt class="docutils literal"><span class="pre">Key</span></tt> . For example, if you specified <tt class="docutils literal"><span class="pre">tag:ServerRole</span></tt> , you could specify <tt class="docutils literal"><span class="pre">value:WebServer</span></tt> to run a command on instances that include EC2 tags of <tt class="docutils literal"><span class="pre">ServerRole,WebServer</span></tt> .</p>
+<p>(string)</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>TargetMaps -&gt; (list)</p>
+<blockquote>
+<div><p>The specified key-value mapping of document parameters to target resources.</p>
+<p>(map)</p>
+<blockquote>
+<div><p>key -&gt; (string)</p>
+<p>value -&gt; (list)</p>
+<blockquote>
+<div>(string)</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>ResolvedTargets -&gt; (structure)</p>
+<blockquote>
+<div><p>A list of targets that resolved during the execution.</p>
+<p>ParameterValues -&gt; (list)</p>
+<blockquote>
+<div><p>A list of parameter values sent to targets that resolved during the Automation execution.</p>
+<p>(string)</p>
+</div></blockquote>
+<p>Truncated -&gt; (boolean)</p>
+<blockquote>
+<div>A boolean value indicating whether the resolved target list is truncated.</div></blockquote>
+</div></blockquote>
+<p>MaxConcurrency -&gt; (string)</p>
+<blockquote>
+<div>The MaxConcurrency value specified by the user when starting the Automation.</div></blockquote>
+<p>MaxErrors -&gt; (string)</p>
+<blockquote>
+<div>The MaxErrors value specified by the user when starting the Automation.</div></blockquote>
+<p>Target -&gt; (string)</p>
+<blockquote>
+<div>The list of execution outputs as defined in the Automation document.</div></blockquote>
+<p>AutomationType -&gt; (string)</p>
+<blockquote>
+<div>Use this filter with  DescribeAutomationExecutions . Specify either Local or CrossAccount. CrossAccount is an Automation that runs in multiple AWS Regions and accounts. For more information, see <a class="reference external" href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html">Running Automation workflows in multiple AWS Regions and accounts</a> in the <em>AWS Systems Manager User Guide</em> .</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>NextToken -&gt; (string)</p>
+<blockquote>
+<div>The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.</div></blockquote>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="../ssm/describe-association-executions.html" title="previous chapter (use the left arrow)">&larr; describe-association-executions</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="../ssm/describe-automation-step-executions.html" title="next chapter (use the right arrow)">describe-automation-step-executions &rarr;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../ssm/describe-automation-step-executions.html" title="describe-automation-step-executions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../ssm/describe-association-executions.html" title="describe-association-executions"
+             >previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.18.192 Command Reference</a> &raquo;</li>
+          <li><a href="../index.html" >aws</a> &raquo;</li>
+          <li><a href="../ssm/index.html" >ssm</a> &raquo;</li> 
+      </ul>
+    </div>
+  <div id="awsdocs-legal-zone-copyright" class="footer container"></div>
+
+
+
+  
+    
+  
+  </body>
+</html>

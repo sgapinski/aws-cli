@@ -1,0 +1,301 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>put-inventory &mdash; AWS CLI 1.18.192 Command Reference</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../../_static/jquery-1.9.1.min.js"></script>
+  <script src="/SdkStatic/sdk-priv.js" async="true"></script>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.18.192',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.18.192 Command Reference" href="../../index.html" />
+    <link rel="up" title="ssm" href="../ssm/index.html" />
+    <link rel="next" title="put-parameter" href="../ssm/put-parameter.html" />
+    <link rel="prev" title="put-compliance-items" href="../ssm/put-compliance-items.html" />
+  <script type="text/javascript" src="/assets/js/awsdocs-boot.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="guide-name" content="API Reference">
+  <meta name="service-name" content="AWS CLI">
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../../index.html">AWS CLI Command Reference</a>
+        <ul class="nav">
+<li><a href="../../index.html">Home</a></li>
+<li><a href="http://docs.aws.amazon.com/cli/latest/userguide/">User Guide</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="https://ghbtns.com/github-btn.html?user=aws&repo=aws-cli&type=watch&count=true&size=small"
+                  allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!--REGION_DISCLAIMER_DO_NOT_REMOVE-->
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../ssm/put-parameter.html" title="put-parameter"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../ssm/put-compliance-items.html" title="put-compliance-items"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.18.192 Command Reference</a> &raquo;</li>
+          <li><a href="../index.html" >aws</a> &raquo;</li>
+          <li><a href="../ssm/index.html" accesskey="U">ssm</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="../ssm/put-compliance-items.html" title="previous chapter (use the left arrow)">&larr; put-compliance-items</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="../ssm/put-parameter.html" title="next chapter (use the right arrow)">put-parameter &rarr;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">put-inventory</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=AWS%20Command%20Line%20Interface&hidden_guide_name=Reference}&topic_url=https%3A%2F%2Fdocs.aws.amazon.com%2Fcli%2Flatest%2Freference/ssm/put-inventory.html">Give us feedback</a> or
+    send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div><div class="left-bar-other">
+  <h3>User Guide</h3>
+  <p>First time using the AWS CLI? See the
+  <a href="http://docs.aws.amazon.com/cli/latest/userguide/">User Guide</a> for
+  help getting started.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+                <div class="well">
+                    <p>
+                        <strong>Note:</strong>
+                        You are viewing the documentation for an older major version of the AWS CLI (version 1).
+                    </p>
+                    <p>
+                        AWS CLI version 2, the latest major version of AWS CLI, is now stable and recommended for general use.
+                        
+                            To view this page for the AWS CLI version 2, click
+                            <a href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/put-inventory.html">here</a>.
+                        
+                        For more information see the AWS CLI version 2
+                        <a href="https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html">installation instructions</a>
+                        and
+                        <a href="https://docs.aws.amazon.com/cli/latest/userguide/cliv2-migration.html">migration guide</a>.
+                    </p>
+                </div>
+              
+  <p>[ <a class="reference internal" href="../index.html#cli-aws"><em>aws</em></a> . <a class="reference internal" href="../ssm/index.html#cli-aws-ssm"><em>ssm</em></a> ]</p>
+<div class="section" id="put-inventory">
+<span id="cli-aws-ssm-put-inventory"></span><h1>put-inventory<a class="headerlink" href="#put-inventory" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Bulk update custom inventory items on one more instance. The request adds an inventory item, if it doesn't already exist, or updates an inventory item, if it does exist.</p>
+<p>See also: <a class="reference external" href="https://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/PutInventory">AWS API Documentation</a></p>
+<p>See <a class="reference internal" href="../index.html"><em>'aws help'</em></a> for descriptions of global parameters.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><pre>  put-inventory
+--instance-id &lt;value&gt;
+--items &lt;value&gt;
+[--cli-input-json &lt;value&gt;]
+[--generate-cli-skeleton &lt;value&gt;]</pre>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">--instance-id</span></tt> (string)</p>
+<blockquote>
+<div>An instance ID where you want to add or update inventory items.</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">--items</span></tt> (list)</p>
+<blockquote>
+<div><p>The inventory items that you want to add or update on instances.</p>
+<p>(structure)</p>
+<blockquote>
+<div><p>Information collected from managed instances based on your inventory policy document</p>
+<p>TypeName -&gt; (string)</p>
+<blockquote>
+<div>The name of the inventory type. Default inventory item type names start with AWS. Custom inventory type names will start with Custom. Default inventory item types include the following: AWS:AWSComponent, AWS:Application, AWS:InstanceInformation, AWS:Network, and AWS:WindowsUpdate.</div></blockquote>
+<p>SchemaVersion -&gt; (string)</p>
+<blockquote>
+<div>The schema version for the inventory item.</div></blockquote>
+<p>CaptureTime -&gt; (string)</p>
+<blockquote>
+<div>The time the inventory information was collected.</div></blockquote>
+<p>ContentHash -&gt; (string)</p>
+<blockquote>
+<div>MD5 hash of the inventory item type contents. The content hash is used to determine whether to update inventory information. The PutInventory API does not update the inventory item type contents if the MD5 hash has not changed since last update.</div></blockquote>
+<p>Content -&gt; (list)</p>
+<blockquote>
+<div><p>The inventory data of the inventory type.</p>
+<p>(map)</p>
+<blockquote>
+<div><p>key -&gt; (string)</p>
+<p>value -&gt; (string)</p>
+</div></blockquote>
+</div></blockquote>
+<p>Context -&gt; (map)</p>
+<blockquote>
+<div><p>A map of associated properties for a specified inventory type. For example, with this attribute, you can specify the <tt class="docutils literal"><span class="pre">ExecutionId</span></tt> , <tt class="docutils literal"><span class="pre">ExecutionType</span></tt> , <tt class="docutils literal"><span class="pre">ComplianceType</span></tt> properties of the <tt class="docutils literal"><span class="pre">AWS:ComplianceItem</span></tt> type.</p>
+<p>key -&gt; (string)</p>
+<p>value -&gt; (string)</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-python"><pre>TypeName=string,SchemaVersion=string,CaptureTime=string,ContentHash=string,Content=[{KeyName1=string,KeyName2=string},{KeyName1=string,KeyName2=string}],Context={KeyName1=string,KeyName2=string} ...</pre>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-python"><pre>[
+  {
+    &quot;TypeName&quot;: &quot;string&quot;,
+    &quot;SchemaVersion&quot;: &quot;string&quot;,
+    &quot;CaptureTime&quot;: &quot;string&quot;,
+    &quot;ContentHash&quot;: &quot;string&quot;,
+    &quot;Content&quot;: [
+      {&quot;string&quot;: &quot;string&quot;
+        ...}
+      ...
+    ],
+    &quot;Context&quot;: {&quot;string&quot;: &quot;string&quot;
+      ...}
+  }
+  ...
+]</pre>
+</div>
+<p><tt class="docutils literal"><span class="pre">--cli-input-json</span></tt> (string)
+Performs service operation based on the JSON string provided. The JSON string follows the format provided by <tt class="docutils literal"><span class="pre">--generate-cli-skeleton</span></tt>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally.</p>
+<p><tt class="docutils literal"><span class="pre">--generate-cli-skeleton</span></tt> (string)
+Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value <tt class="docutils literal"><span class="pre">input</span></tt>, prints a sample input JSON that can be used as an argument for <tt class="docutils literal"><span class="pre">--cli-input-json</span></tt>. If provided with the value <tt class="docutils literal"><span class="pre">output</span></tt>, it validates the command inputs and returns a sample output JSON for that command.</p>
+<p>See <a class="reference internal" href="../index.html"><em>'aws help'</em></a> for descriptions of global parameters.</p>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p><strong>To assign customer metadata to an instance</strong></p>
+<p>This example assigns rack location information to an instance. There is no output if the command succeeds.</p>
+<p>Command (Linux):</p>
+<div class="highlight-python"><pre>aws ssm put-inventory --instance-id &quot;i-016648b75dd622dab&quot; --items &#x27;[{&quot;TypeName&quot;: &quot;Custom:RackInfo&quot;,&quot;SchemaVersion&quot;: &quot;1.0&quot;,&quot;CaptureTime&quot;: &quot;2019-01-22T10:01:01Z&quot;,&quot;Content&quot;:[{&quot;RackLocation&quot;: &quot;Bay B/Row C/Rack D/Shelf E&quot;}]}]&#x27;</pre>
+</div>
+<p>Command (Windows):</p>
+<div class="highlight-python"><pre>aws ssm put-inventory --instance-id &quot;i-016648b75dd622dab&quot; --items &quot;TypeName=Custom:RackInfo,SchemaVersion=1.0,CaptureTime=2019-01-22T10:01:01Z,Content=[{RackLocation=&#x27;Bay B/Row C/Rack D/Shelf F&#x27;}]&quot;</pre>
+</div>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>Message -&gt; (string)</p>
+<blockquote>
+<div>Information about the request.</div></blockquote>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="../ssm/put-compliance-items.html" title="previous chapter (use the left arrow)">&larr; put-compliance-items</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="../ssm/put-parameter.html" title="next chapter (use the right arrow)">put-parameter &rarr;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../ssm/put-parameter.html" title="put-parameter"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../ssm/put-compliance-items.html" title="put-compliance-items"
+             >previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.18.192 Command Reference</a> &raquo;</li>
+          <li><a href="../index.html" >aws</a> &raquo;</li>
+          <li><a href="../ssm/index.html" >ssm</a> &raquo;</li> 
+      </ul>
+    </div>
+  <div id="awsdocs-legal-zone-copyright" class="footer container"></div>
+
+
+
+  
+    
+  
+  </body>
+</html>

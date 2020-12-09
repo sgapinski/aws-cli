@@ -1,0 +1,330 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>get-document &mdash; AWS CLI 1.18.192 Command Reference</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../../_static/jquery-1.9.1.min.js"></script>
+  <script src="/SdkStatic/sdk-priv.js" async="true"></script>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.18.192',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.18.192 Command Reference" href="../../index.html" />
+    <link rel="up" title="ssm" href="../ssm/index.html" />
+    <link rel="next" title="get-inventory" href="../ssm/get-inventory.html" />
+    <link rel="prev" title="get-deployable-patch-snapshot-for-instance" href="../ssm/get-deployable-patch-snapshot-for-instance.html" />
+  <script type="text/javascript" src="/assets/js/awsdocs-boot.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="guide-name" content="API Reference">
+  <meta name="service-name" content="AWS CLI">
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../../index.html">AWS CLI Command Reference</a>
+        <ul class="nav">
+<li><a href="../../index.html">Home</a></li>
+<li><a href="http://docs.aws.amazon.com/cli/latest/userguide/">User Guide</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="https://ghbtns.com/github-btn.html?user=aws&repo=aws-cli&type=watch&count=true&size=small"
+                  allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!--REGION_DISCLAIMER_DO_NOT_REMOVE-->
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../ssm/get-inventory.html" title="get-inventory"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../ssm/get-deployable-patch-snapshot-for-instance.html" title="get-deployable-patch-snapshot-for-instance"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.18.192 Command Reference</a> &raquo;</li>
+          <li><a href="../index.html" >aws</a> &raquo;</li>
+          <li><a href="../ssm/index.html" accesskey="U">ssm</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="../ssm/get-deployable-patch-snapshot-for-instance.html" title="previous chapter (use the left arrow)">&larr; get-deployable-patch-snapshot-for-instance</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="../ssm/get-inventory.html" title="next chapter (use the right arrow)">get-inventory &rarr;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">get-document</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=AWS%20Command%20Line%20Interface&hidden_guide_name=Reference}&topic_url=https%3A%2F%2Fdocs.aws.amazon.com%2Fcli%2Flatest%2Freference/ssm/get-document.html">Give us feedback</a> or
+    send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div><div class="left-bar-other">
+  <h3>User Guide</h3>
+  <p>First time using the AWS CLI? See the
+  <a href="http://docs.aws.amazon.com/cli/latest/userguide/">User Guide</a> for
+  help getting started.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+                <div class="well">
+                    <p>
+                        <strong>Note:</strong>
+                        You are viewing the documentation for an older major version of the AWS CLI (version 1).
+                    </p>
+                    <p>
+                        AWS CLI version 2, the latest major version of AWS CLI, is now stable and recommended for general use.
+                        
+                            To view this page for the AWS CLI version 2, click
+                            <a href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/get-document.html">here</a>.
+                        
+                        For more information see the AWS CLI version 2
+                        <a href="https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html">installation instructions</a>
+                        and
+                        <a href="https://docs.aws.amazon.com/cli/latest/userguide/cliv2-migration.html">migration guide</a>.
+                    </p>
+                </div>
+              
+  <p>[ <a class="reference internal" href="../index.html#cli-aws"><em>aws</em></a> . <a class="reference internal" href="../ssm/index.html#cli-aws-ssm"><em>ssm</em></a> ]</p>
+<div class="section" id="get-document">
+<span id="cli-aws-ssm-get-document"></span><h1>get-document<a class="headerlink" href="#get-document" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Gets the contents of the specified Systems Manager document.</p>
+<p>See also: <a class="reference external" href="https://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetDocument">AWS API Documentation</a></p>
+<p>See <a class="reference internal" href="../index.html"><em>'aws help'</em></a> for descriptions of global parameters.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><pre>  get-document
+--name &lt;value&gt;
+[--version-name &lt;value&gt;]
+[--document-version &lt;value&gt;]
+[--document-format &lt;value&gt;]
+[--cli-input-json &lt;value&gt;]
+[--generate-cli-skeleton &lt;value&gt;]</pre>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">--name</span></tt> (string)</p>
+<blockquote>
+<div>The name of the Systems Manager document.</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">--version-name</span></tt> (string)</p>
+<blockquote>
+<div>An optional field specifying the version of the artifact associated with the document. For example, &quot;Release 12, Update 6&quot;. This value is unique across all versions of a document and can't be changed.</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">--document-version</span></tt> (string)</p>
+<blockquote>
+<div>The document version for which you want information.</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">--document-format</span></tt> (string)</p>
+<blockquote>
+<div><p>Returns the document in the specified format. The document format can be either JSON or YAML. JSON is the default format.</p>
+<p>Possible values:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">YAML</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">JSON</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">TEXT</span></tt></li>
+</ul>
+</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">--cli-input-json</span></tt> (string)
+Performs service operation based on the JSON string provided. The JSON string follows the format provided by <tt class="docutils literal"><span class="pre">--generate-cli-skeleton</span></tt>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally.</p>
+<p><tt class="docutils literal"><span class="pre">--generate-cli-skeleton</span></tt> (string)
+Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value <tt class="docutils literal"><span class="pre">input</span></tt>, prints a sample input JSON that can be used as an argument for <tt class="docutils literal"><span class="pre">--cli-input-json</span></tt>. If provided with the value <tt class="docutils literal"><span class="pre">output</span></tt>, it validates the command inputs and returns a sample output JSON for that command.</p>
+<p>See <a class="reference internal" href="../index.html"><em>'aws help'</em></a> for descriptions of global parameters.</p>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p><strong>To get document content</strong></p>
+<p>The following <tt class="docutils literal"><span class="pre">get-document</span></tt> example displays the content of a Systems Manager document.</p>
+<div class="highlight-python"><pre>aws ssm get-document \
+    --name &quot;AWS-RunShellScript&quot;</pre>
+</div>
+<p>Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;AWS-RunShellScript&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;DocumentVersion&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Status&quot;</span><span class="p">:</span> <span class="s2">&quot;Active&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Content&quot;</span><span class="p">:</span> <span class="s2">&quot;{</span><span class="se">\n</span><span class="s2">    </span><span class="se">\&quot;</span><span class="s2">schemaVersion</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">1.2</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\&quot;</span><span class="s2">description</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">Run a shell script or specify the commands to run.</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\&quot;</span><span class="s2">parameters</span><span class="se">\&quot;</span><span class="s2">:{</span><span class="se">\n</span><span class="s2">        </span><span class="se">\&quot;</span><span class="s2">commands</span><span class="se">\&quot;</span><span class="s2">:{</span><span class="se">\n</span><span class="s2">            </span><span class="se">\&quot;</span><span class="s2">type</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">StringList</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\n</span><span class="s2">            </span><span class="se">\&quot;</span><span class="s2">description</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">(Required) Specify a shell script or a command to run.</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\n</span><span class="s2">            </span><span class="se">\&quot;</span><span class="s2">minItems</span><span class="se">\&quot;</span><span class="s2">:1,</span><span class="se">\n</span><span class="s2">            </span><span class="se">\&quot;</span><span class="s2">displayType</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">textarea</span><span class="se">\&quot;\n</span><span class="s2">        },</span><span class="se">\n</span><span class="s2">        </span><span class="se">\&quot;</span><span class="s2">workingDirectory</span><span class="se">\&quot;</span><span class="s2">:{</span><span class="se">\n</span><span class="s2">            </span><span class="se">\&quot;</span><span class="s2">type</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">String</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\n</span><span class="s2">            </span><span class="se">\&quot;</span><span class="s2">default</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;\&quot;</span><span class="s2">,</span><span class="se">\n</span><span class="s2">            </span><span class="se">\&quot;</span><span class="s2">description</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">(Optional) The path to the working directory on your instance.</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\n</span><span class="s2">            </span><span class="se">\&quot;</span><span class="s2">maxChars</span><span class="se">\&quot;</span><span class="s2">:4096</span><span class="se">\n</span><span class="s2">        },</span><span class="se">\n</span><span class="s2">        </span><span class="se">\&quot;</span><span class="s2">executionTimeout</span><span class="se">\&quot;</span><span class="s2">:{</span><span class="se">\n</span><span class="s2">            </span><span class="se">\&quot;</span><span class="s2">type</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">String</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\n</span><span class="s2">            </span><span class="se">\&quot;</span><span class="s2">default</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">3600</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\n</span><span class="s2">            </span><span class="se">\&quot;</span><span class="s2">description</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">(Optional) The time in seconds for a command to complete before it is considered to have failed. Default is 3600 (1 hour). Maximum is 172800 (48 hours).</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\n</span><span class="s2">            </span><span class="se">\&quot;</span><span class="s2">allowedPattern</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">([1-9][0-9]{0,4})|(1[0-6][0-9]</span><span class="si">{4}</span><span class="s2">)|(17[0-1][0-9]</span><span class="si">{3}</span><span class="s2">)|(172[0-7][0-9]</span><span class="si">{2}</span><span class="s2">)|(172800)</span><span class="se">\&quot;\n</span><span class="s2">        }</span><span class="se">\n</span><span class="s2">    },</span><span class="se">\n</span><span class="s2">    </span><span class="se">\&quot;</span><span class="s2">runtimeConfig</span><span class="se">\&quot;</span><span class="s2">:{</span><span class="se">\n</span><span class="s2">        </span><span class="se">\&quot;</span><span class="s2">aws:runShellScript</span><span class="se">\&quot;</span><span class="s2">:{</span><span class="se">\n</span><span class="s2">            </span><span class="se">\&quot;</span><span class="s2">properties</span><span class="se">\&quot;</span><span class="s2">:[</span><span class="se">\n</span><span class="s2">                {</span><span class="se">\n</span><span class="s2">                    </span><span class="se">\&quot;</span><span class="s2">id</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">0.aws:runShellScript</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\n</span><span class="s2">                    </span><span class="se">\&quot;</span><span class="s2">runCommand</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">{{ commands }}</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\n</span><span class="s2">                    </span><span class="se">\&quot;</span><span class="s2">workingDirectory</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">{{ workingDirectory }}</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\n</span><span class="s2">                    </span><span class="se">\&quot;</span><span class="s2">timeoutSeconds</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">{{ executionTimeout }}</span><span class="se">\&quot;\n</span><span class="s2">                }</span><span class="se">\n</span><span class="s2">            ]</span><span class="se">\n</span><span class="s2">        }</span><span class="se">\n</span><span class="s2">    }</span><span class="se">\n</span><span class="s2">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;DocumentType&quot;</span><span class="p">:</span> <span class="s2">&quot;Command&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;DocumentFormat&quot;</span><span class="p">:</span> <span class="s2">&quot;JSON&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>For more information, see <a class="reference external" href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html">AWS Systems Manager Documents</a> in the <em>AWS Systems Manager User Guide</em>.</p>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>Name -&gt; (string)</p>
+<blockquote>
+<div>The name of the Systems Manager document.</div></blockquote>
+<p>VersionName -&gt; (string)</p>
+<blockquote>
+<div>The version of the artifact associated with the document. For example, &quot;Release 12, Update 6&quot;. This value is unique across all versions of a document, and cannot be changed.</div></blockquote>
+<p>DocumentVersion -&gt; (string)</p>
+<blockquote>
+<div>The document version.</div></blockquote>
+<p>Status -&gt; (string)</p>
+<blockquote>
+<div>The status of the Systems Manager document, such as <tt class="docutils literal"><span class="pre">Creating</span></tt> , <tt class="docutils literal"><span class="pre">Active</span></tt> , <tt class="docutils literal"><span class="pre">Updating</span></tt> , <tt class="docutils literal"><span class="pre">Failed</span></tt> , and <tt class="docutils literal"><span class="pre">Deleting</span></tt> .</div></blockquote>
+<p>StatusInformation -&gt; (string)</p>
+<blockquote>
+<div>A message returned by AWS Systems Manager that explains the <tt class="docutils literal"><span class="pre">Status</span></tt> value. For example, a <tt class="docutils literal"><span class="pre">Failed</span></tt> status might be explained by the <tt class="docutils literal"><span class="pre">StatusInformation</span></tt> message, &quot;The specified S3 bucket does not exist. Verify that the URL of the S3 bucket is correct.&quot;</div></blockquote>
+<p>Content -&gt; (string)</p>
+<blockquote>
+<div>The contents of the Systems Manager document.</div></blockquote>
+<p>DocumentType -&gt; (string)</p>
+<blockquote>
+<div>The document type.</div></blockquote>
+<p>DocumentFormat -&gt; (string)</p>
+<blockquote>
+<div>The document format, either JSON or YAML.</div></blockquote>
+<p>Requires -&gt; (list)</p>
+<blockquote>
+<div><p>A list of SSM documents required by a document. For example, an <tt class="docutils literal"><span class="pre">ApplicationConfiguration</span></tt> document requires an <tt class="docutils literal"><span class="pre">ApplicationConfigurationSchema</span></tt> document.</p>
+<p>(structure)</p>
+<blockquote>
+<div><p>An SSM document required by the current document.</p>
+<p>Name -&gt; (string)</p>
+<blockquote>
+<div>The name of the required SSM document. The name can be an Amazon Resource Name (ARN).</div></blockquote>
+<p>Version -&gt; (string)</p>
+<blockquote>
+<div>The document version required by the current document.</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>AttachmentsContent -&gt; (list)</p>
+<blockquote>
+<div><p>A description of the document attachments, including names, locations, sizes, and so on.</p>
+<p>(structure)</p>
+<blockquote>
+<div><p>A structure that includes attributes that describe a document attachment.</p>
+<p>Name -&gt; (string)</p>
+<blockquote>
+<div>The name of an attachment.</div></blockquote>
+<p>Size -&gt; (long)</p>
+<blockquote>
+<div>The size of an attachment in bytes.</div></blockquote>
+<p>Hash -&gt; (string)</p>
+<blockquote>
+<div>The cryptographic hash value of the document content.</div></blockquote>
+<p>HashType -&gt; (string)</p>
+<blockquote>
+<div>The hash algorithm used to calculate the hash value.</div></blockquote>
+<p>Url -&gt; (string)</p>
+<blockquote>
+<div>The URL location of the attachment content.</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="../ssm/get-deployable-patch-snapshot-for-instance.html" title="previous chapter (use the left arrow)">&larr; get-deployable-patch-snapshot-for-instance</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="../ssm/get-inventory.html" title="next chapter (use the right arrow)">get-inventory &rarr;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../ssm/get-inventory.html" title="get-inventory"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../ssm/get-deployable-patch-snapshot-for-instance.html" title="get-deployable-patch-snapshot-for-instance"
+             >previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.18.192 Command Reference</a> &raquo;</li>
+          <li><a href="../index.html" >aws</a> &raquo;</li>
+          <li><a href="../ssm/index.html" >ssm</a> &raquo;</li> 
+      </ul>
+    </div>
+  <div id="awsdocs-legal-zone-copyright" class="footer container"></div>
+
+
+
+  
+    
+  
+  </body>
+</html>

@@ -1,0 +1,343 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+    <title>create-resource-data-sync &mdash; AWS CLI 1.18.192 Command Reference</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap.min.css" />
+  <script type="text/javascript" src="../../_static/jquery-1.9.1.min.js"></script>
+  <script src="/SdkStatic/sdk-priv.js" async="true"></script>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.18.192',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="AWS CLI 1.18.192 Command Reference" href="../../index.html" />
+    <link rel="up" title="ssm" href="../ssm/index.html" />
+    <link rel="next" title="delete-activation" href="../ssm/delete-activation.html" />
+    <link rel="prev" title="create-patch-baseline" href="../ssm/create-patch-baseline.html" />
+  <script type="text/javascript" src="/assets/js/awsdocs-boot.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="guide-name" content="API Reference">
+  <meta name="service-name" content="AWS CLI">
+  <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-responsive.min.css" />
+  
+   
+
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top ">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="../../index.html">AWS CLI Command Reference</a>
+        <ul class="nav">
+<li><a href="../../index.html">Home</a></li>
+<li><a href="http://docs.aws.amazon.com/cli/latest/userguide/">User Guide</a></li>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=150">Forum</a></li>
+<li><a href="https://github.com/aws/aws-cli">GitHub</a></li>
+        </ul>
+        <div class="pull-right" id="github-stars">
+          <iframe src="https://ghbtns.com/github-btn.html?user=aws&repo=aws-cli&type=watch&count=true&size=small"
+                  allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!--REGION_DISCLAIMER_DO_NOT_REMOVE-->
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../ssm/delete-activation.html" title="delete-activation"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../ssm/create-patch-baseline.html" title="create-patch-baseline"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.18.192 Command Reference</a> &raquo;</li>
+          <li><a href="../index.html" >aws</a> &raquo;</li>
+          <li><a href="../ssm/index.html" accesskey="U">ssm</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="container">
+        
+    <div class="top-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="../ssm/create-patch-baseline.html" title="previous chapter (use the left arrow)">&larr; create-patch-baseline</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="../ssm/delete-activation.html" title="next chapter (use the right arrow)">delete-activation &rarr;</a></li>
+      </ul>
+    </div>
+  
+        <div class="document clearer">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><p class="logo left-bar-other">
+  <a href="../../index.html">
+    <img class="logo" src="../../_static/logo.png" alt="Logo" height="63" />
+  </a>
+</p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">create-resource-data-sync</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+    <form class="form-search margin-top-1em" action="../../search.html" method="get">
+        <input type="text" name="q" style="width: 105px" class="input-small search-query" />
+        <button type="submit" class="btn btn-small">Search</button>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script><div class="left-bar-other">
+  <h3>Feedback</h3>
+  <p class="feedback">Did you find this page useful? Do you have a suggestion? <a href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=AWS%20Command%20Line%20Interface&hidden_guide_name=Reference}&topic_url=https%3A%2F%2Fdocs.aws.amazon.com%2Fcli%2Flatest%2Freference/ssm/create-resource-data-sync.html">Give us feedback</a> or
+    send us a <a href="https://github.com/aws/aws-cli">pull request</a> on GitHub.</p>
+</div><div class="left-bar-other">
+  <h3>User Guide</h3>
+  <p>First time using the AWS CLI? See the
+  <a href="http://docs.aws.amazon.com/cli/latest/userguide/">User Guide</a> for
+  help getting started.</p>
+</div>
+        </div>
+      </div>
+            <div class="body">
+                <div class="well">
+                    <p>
+                        <strong>Note:</strong>
+                        You are viewing the documentation for an older major version of the AWS CLI (version 1).
+                    </p>
+                    <p>
+                        AWS CLI version 2, the latest major version of AWS CLI, is now stable and recommended for general use.
+                        
+                            To view this page for the AWS CLI version 2, click
+                            <a href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/create-resource-data-sync.html">here</a>.
+                        
+                        For more information see the AWS CLI version 2
+                        <a href="https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html">installation instructions</a>
+                        and
+                        <a href="https://docs.aws.amazon.com/cli/latest/userguide/cliv2-migration.html">migration guide</a>.
+                    </p>
+                </div>
+              
+  <p>[ <a class="reference internal" href="../index.html#cli-aws"><em>aws</em></a> . <a class="reference internal" href="../ssm/index.html#cli-aws-ssm"><em>ssm</em></a> ]</p>
+<div class="section" id="create-resource-data-sync">
+<span id="cli-aws-ssm-create-resource-data-sync"></span><h1>create-resource-data-sync<a class="headerlink" href="#create-resource-data-sync" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>A resource data sync helps you view data from multiple sources in a single location. Systems Manager offers two types of resource data sync: <tt class="docutils literal"><span class="pre">SyncToDestination</span></tt> and <tt class="docutils literal"><span class="pre">SyncFromSource</span></tt> .</p>
+<p>You can configure Systems Manager Inventory to use the <tt class="docutils literal"><span class="pre">SyncToDestination</span></tt> type to synchronize Inventory data from multiple AWS Regions to a single S3 bucket. For more information, see <a class="reference external" href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-datasync.html">Configuring Resource Data Sync for Inventory</a> in the <em>AWS Systems Manager User Guide</em> .</p>
+<p>You can configure Systems Manager Explorer to use the <tt class="docutils literal"><span class="pre">SyncFromSource</span></tt> type to synchronize operational work items (OpsItems) and operational data (OpsData) from multiple AWS Regions to a single S3 bucket. This type can synchronize OpsItems and OpsData from multiple AWS accounts and Regions or <tt class="docutils literal"><span class="pre">EntireOrganization</span></tt> by using AWS Organizations. For more information, see <a class="reference external" href="https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resource-data-sync.html">Setting up Systems Manager Explorer to display data from multiple accounts and Regions</a> in the <em>AWS Systems Manager User Guide</em> .</p>
+<p>A resource data sync is an asynchronous operation that returns immediately. After a successful initial sync is completed, the system continuously syncs data. To check the status of a sync, use the  ListResourceDataSync .</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">By default, data is not encrypted in Amazon S3. We strongly recommend that you enable encryption in Amazon S3 to ensure secure data storage. We also recommend that you secure access to the Amazon S3 bucket by creating a restrictive bucket policy.</p>
+</div>
+<p>See also: <a class="reference external" href="https://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/CreateResourceDataSync">AWS API Documentation</a></p>
+<p>See <a class="reference internal" href="../index.html"><em>'aws help'</em></a> for descriptions of global parameters.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><pre>  create-resource-data-sync
+--sync-name &lt;value&gt;
+[--s3-destination &lt;value&gt;]
+[--sync-type &lt;value&gt;]
+[--sync-source &lt;value&gt;]
+[--cli-input-json &lt;value&gt;]
+[--generate-cli-skeleton &lt;value&gt;]</pre>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">--sync-name</span></tt> (string)</p>
+<blockquote>
+<div>A name for the configuration.</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">--s3-destination</span></tt> (structure)</p>
+<blockquote>
+<div><p>Amazon S3 configuration details for the sync. This parameter is required if the <tt class="docutils literal"><span class="pre">SyncType</span></tt> value is SyncToDestination.</p>
+<p>BucketName -&gt; (string)</p>
+<blockquote>
+<div>The name of the S3 bucket where the aggregated data is stored.</div></blockquote>
+<p>Prefix -&gt; (string)</p>
+<blockquote>
+<div>An Amazon S3 prefix for the bucket.</div></blockquote>
+<p>SyncFormat -&gt; (string)</p>
+<blockquote>
+<div>A supported sync format. The following format is currently supported: JsonSerDe</div></blockquote>
+<p>Region -&gt; (string)</p>
+<blockquote>
+<div>The AWS Region with the S3 bucket targeted by the Resource Data Sync.</div></blockquote>
+<p>AWSKMSKeyARN -&gt; (string)</p>
+<blockquote>
+<div>The ARN of an encryption key for a destination in Amazon S3. Must belong to the same Region as the destination S3 bucket.</div></blockquote>
+<p>DestinationDataSharing -&gt; (structure)</p>
+<blockquote>
+<div><p>Enables destination data sharing. By default, this field is <tt class="docutils literal"><span class="pre">null</span></tt> .</p>
+<p>DestinationDataSharingType -&gt; (string)</p>
+<blockquote>
+<div>The sharing data type. Only <tt class="docutils literal"><span class="pre">Organization</span></tt> is supported.</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>Shorthand Syntax:</p>
+<div class="highlight-python"><pre>BucketName=string,Prefix=string,SyncFormat=string,Region=string,AWSKMSKeyARN=string,DestinationDataSharing={DestinationDataSharingType=string}</pre>
+</div>
+<p>JSON Syntax:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;BucketName&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;Prefix&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;SyncFormat&quot;</span><span class="p">:</span> <span class="s2">&quot;JsonSerDe&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;Region&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;AWSKMSKeyARN&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;DestinationDataSharing&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;DestinationDataSharingType&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><tt class="docutils literal"><span class="pre">--sync-type</span></tt> (string)</p>
+<blockquote>
+<div>Specify <tt class="docutils literal"><span class="pre">SyncToDestination</span></tt> to create a resource data sync that synchronizes data to an S3 bucket for Inventory. If you specify <tt class="docutils literal"><span class="pre">SyncToDestination</span></tt> , you must provide a value for <tt class="docutils literal"><span class="pre">S3Destination</span></tt> . Specify <tt class="docutils literal"><span class="pre">SyncFromSource</span></tt> to synchronize data from a single account and multiple Regions, or multiple AWS accounts and Regions, as listed in AWS Organizations for Explorer. If you specify <tt class="docutils literal"><span class="pre">SyncFromSource</span></tt> , you must provide a value for <tt class="docutils literal"><span class="pre">SyncSource</span></tt> . The default value is <tt class="docutils literal"><span class="pre">SyncToDestination</span></tt> .</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">--sync-source</span></tt> (structure)</p>
+<blockquote>
+<div><p>Specify information about the data sources to synchronize. This parameter is required if the <tt class="docutils literal"><span class="pre">SyncType</span></tt> value is SyncFromSource.</p>
+<p>SourceType -&gt; (string)</p>
+<blockquote>
+<div>The type of data source for the resource data sync. <tt class="docutils literal"><span class="pre">SourceType</span></tt> is either <tt class="docutils literal"><span class="pre">AwsOrganizations</span></tt> (if an organization is present in AWS Organizations) or <tt class="docutils literal"><span class="pre">singleAccountMultiRegions</span></tt> .</div></blockquote>
+<p>AwsOrganizationsSource -&gt; (structure)</p>
+<blockquote>
+<div><p>Information about the AwsOrganizationsSource resource data sync source. A sync source of this type can synchronize data from AWS Organizations.</p>
+<p>OrganizationSourceType -&gt; (string)</p>
+<blockquote>
+<div>If an AWS Organization is present, this is either <tt class="docutils literal"><span class="pre">OrganizationalUnits</span></tt> or <tt class="docutils literal"><span class="pre">EntireOrganization</span></tt> . For <tt class="docutils literal"><span class="pre">OrganizationalUnits</span></tt> , the data is aggregated from a set of organization units. For <tt class="docutils literal"><span class="pre">EntireOrganization</span></tt> , the data is aggregated from the entire AWS Organization.</div></blockquote>
+<p>OrganizationalUnits -&gt; (list)</p>
+<blockquote>
+<div><p>The AWS Organizations organization units included in the sync.</p>
+<p>(structure)</p>
+<blockquote>
+<div><p>The AWS Organizations organizational unit data source for the sync.</p>
+<p>OrganizationalUnitId -&gt; (string)</p>
+<blockquote>
+<div>The AWS Organization unit ID data source for the sync.</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>SourceRegions -&gt; (list)</p>
+<blockquote>
+<div><p>The <tt class="docutils literal"><span class="pre">SyncSource</span></tt> AWS Regions included in the resource data sync.</p>
+<p>(string)</p>
+</div></blockquote>
+<p>IncludeFutureRegions -&gt; (boolean)</p>
+<blockquote>
+<div>Whether to automatically synchronize and aggregate data from new AWS Regions when those Regions come online.</div></blockquote>
+</div></blockquote>
+<p>JSON Syntax:</p>
+<div class="highlight-python"><pre>{
+  &quot;SourceType&quot;: &quot;string&quot;,
+  &quot;AwsOrganizationsSource&quot;: {
+    &quot;OrganizationSourceType&quot;: &quot;string&quot;,
+    &quot;OrganizationalUnits&quot;: [
+      {
+        &quot;OrganizationalUnitId&quot;: &quot;string&quot;
+      }
+      ...
+    ]
+  },
+  &quot;SourceRegions&quot;: [&quot;string&quot;, ...],
+  &quot;IncludeFutureRegions&quot;: true|false
+}</pre>
+</div>
+<p><tt class="docutils literal"><span class="pre">--cli-input-json</span></tt> (string)
+Performs service operation based on the JSON string provided. The JSON string follows the format provided by <tt class="docutils literal"><span class="pre">--generate-cli-skeleton</span></tt>. If other arguments are provided on the command line, the CLI values will override the JSON-provided values. It is not possible to pass arbitrary binary values using a JSON-provided value as the string will be taken literally.</p>
+<p><tt class="docutils literal"><span class="pre">--generate-cli-skeleton</span></tt> (string)
+Prints a JSON skeleton to standard output without sending an API request. If provided with no value or the value <tt class="docutils literal"><span class="pre">input</span></tt>, prints a sample input JSON that can be used as an argument for <tt class="docutils literal"><span class="pre">--cli-input-json</span></tt>. If provided with the value <tt class="docutils literal"><span class="pre">output</span></tt>, it validates the command inputs and returns a sample output JSON for that command.</p>
+<p>See <a class="reference internal" href="../index.html"><em>'aws help'</em></a> for descriptions of global parameters.</p>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p><strong>To create a resource data sync</strong></p>
+<p>This example creates a resource data sync. There is no output if the command succeeds.</p>
+<p>Command:</p>
+<div class="highlight-python"><pre>aws ssm create-resource-data-sync --sync-name &quot;ssm-resource-data-sync&quot; --s3-destination &quot;BucketName=ssm-bucket,Prefix=inventory,SyncFormat=JsonSerDe,Region=us-east-1&quot;</pre>
+</div>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>None</p>
+</div>
+</div>
+
+
+            </div>
+          <div class="clearfix"></div>
+        </div>
+        
+    <div class="footer-links">
+      <ul class="breadcrumb pull-right">
+        <li>
+          <a href="../ssm/create-patch-baseline.html" title="previous chapter (use the left arrow)">&larr; create-patch-baseline</a>
+          <span class="divider">/</span>
+          
+        </li>
+          <li><a href="../ssm/delete-activation.html" title="next chapter (use the right arrow)">delete-activation &rarr;</a></li>
+      </ul>
+    </div>
+  
+
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../ssm/delete-activation.html" title="delete-activation"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../ssm/create-patch-baseline.html" title="create-patch-baseline"
+             >previous</a> |</li>
+        <li><a href="../../index.html">AWS CLI 1.18.192 Command Reference</a> &raquo;</li>
+          <li><a href="../index.html" >aws</a> &raquo;</li>
+          <li><a href="../ssm/index.html" >ssm</a> &raquo;</li> 
+      </ul>
+    </div>
+  <div id="awsdocs-legal-zone-copyright" class="footer container"></div>
+
+
+
+  
+    
+  
+  </body>
+</html>
